@@ -1,0 +1,18 @@
+h1 {
+  color: blue;
+  font-size: 150%;
+}
+p {
+  text-indent: 50px;
+}
+#paragraph {
+  border: solid 2px black;
+  border-radius: 10px;
+  margin: 50px;
+  background-color: #FDA3B5;
+}
+
+#content {
+  border: dashed 2px black;
+  background-color: #FFA4B6;
+}
