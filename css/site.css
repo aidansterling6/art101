@@ -1,0 +1,18 @@
+body {
+  background-color: #DDDDDD;
+}
+#portrait {
+  width: 500px;
+  border-radius: 15px;
+}
+#websiteborder {
+  border-radius: 15px;
+  border: dashed 1px black;
+  padding: 10px;
+}
+.box {
+  background-color: #BBBBBB;
+  border-radius: 15px;
+  border: solid 1px black;
+  padding: 10px;
+}
