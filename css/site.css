@@ -16,3 +16,11 @@ body {
   border: solid 1px black;
   padding: 10px;
 }
+.program {
+  background-color: #BBBBBB;
+  border-radius: 15px;
+  border: solid 1px black;
+  padding: 10px;
+  height: 425px;
+  width: 420px;
+}
