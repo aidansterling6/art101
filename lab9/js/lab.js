@@ -25,3 +25,11 @@ var elements = document.getElementsByClassName("box1");
 for(var i = 0; i < elements.length;i++){
 elements[i].style.backgroundColor = "rgb(255, 192, 203)";
 }
+
+//task x
+
+//create new element and assigne to new3El
+var new3El = document.createElement("p");
+//renamed new3El
+new3El.innerHTML = "task x text on top";
+outputEl.prepend(new3El);

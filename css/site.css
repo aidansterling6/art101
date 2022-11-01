@@ -1,5 +1,7 @@
 body {
   background-color: #DDDDDD;
+  background-image: url(../img/jsArt1.png);
+  background-repeat: no-repeat;
 }
 #portrait {
   width: 500px;
