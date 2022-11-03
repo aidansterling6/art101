@@ -1,12 +1,10 @@
-#main {
-  #background-color: #61C1E8;
-}
-#websiteborder1 {
+body {
+  background-color: #DDDDDD;
   background-image: url(../img/JavascriptArt3.png);
   background-repeat: no-repeat;
-  background-attachment: fixed;
   background-size: cover;
-  background-color: #7cc6eb;
+}
+#websiteborder1 {
   border-radius: 5px;
   border: dashed 1px #39aae3;
   padding: 10px;
