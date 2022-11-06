@@ -827,9 +827,16 @@ if(true){
 
 //set level to start
 level(-1);
-
 //draw loop
 draw = function() {
+  if(!focused){
+    background(150, 150, 150);
+    fill(0, 0, 0);
+    noStroke();
+    textSize(30);
+    text("Click to start", 200, 200);
+  }
+  if(focused){
     //game logic
     if(pause === false && menu === false && levelselect === false){
         //reload logic
@@ -886,4 +893,5 @@ draw = function() {
     }
     }
     cmt--;
+  }
 };

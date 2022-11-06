@@ -1,6 +1,7 @@
 function setup() {
   createCanvas(400, 400);
   angleMode(DEGREES);
+  textAlign(CENTER, CENTER);
 }
 
 //the path does not always go to the right
@@ -390,226 +391,235 @@ for(var i = 0; i < checkPoint.length;i++){
 var start = true;
 //draw loop
 draw = function() {
-if(start){
-  //set level to current level
-  level(currentLevel);
-  start = false;
-}
-//time after collisions were you can jump
-jumpt++;
-if(jumpt > jumpLim){
-    Jump = false;
-}
-
-    JumpD = 0;
-    //spawns avalanch of balls in first level, made before contest
-    if(currentLevel === 0){
-
-    if(ball.length < 80/*number of max balls for first level*/){
-        ball.push({x:-1019 + random(0,50),y:540 - (25*25),ax:random(0,10),ay:10,s:15});
-    }
-    for(var i = 0; i < ball.length;i++){
-        if(i !== 0){
-            if(ball[i].y > 800){
-                ball.splice(i,1);
-            }
-        }
-    }
-    }
-    //set background to blue
-    background(79, 161, 255);
+  if(!focused){
+    background(150, 150, 150);
     fill(0, 0, 0);
-    //move camera twords player, made before contest
-    camX += (ball[0].x - camX)/dist(ball[0].x,ball[0].y,camX,camY)*1/(10/dist(ball[0].x,ball[0].y,camX,camY));
-    camY += (ball[0].y - camY)/dist(ball[0].x,ball[0].y,camX,camY)*1/(10/dist(ball[0].x,ball[0].y,camX,camY));
-    //translate screen to camera
-    translate(-camX + 200,-camY + 200);
-    //call checkpoint function
-    checkPoints();
-    //call ball function
-    balls();
-    //call block function
-    blocks();
-    //movement for player, made before contest
-    if(currentLevel >= 0){
-    if(keyIsPressed && keys[68] && ball[0].ax < 3){
-        ball[0].ax += 0.5;
-    }
-    if(keyIsPressed && keys[39] && ball[0].ax < 3){
-        ball[0].ax += 0.5;
-    }
-    if(keyIsPressed && keys[65] && ball[0].ax > -3){
-        ball[0].ax -= 0.5;
-    }
-    if(keyIsPressed && keys[37] && ball[0].ax > -3){
-        ball[0].ax -= 0.5;
-    }
-    if(keyIsPressed && keys[87] && Jump){
-        ball[0].ay = -8;
-        ball[0].ax = JumpD;
-        jumpt = 2*jumpLim;
-    }
-    if(keyIsPressed && keys[38] && Jump){
-        ball[0].ay = -8;
-        ball[0].ax = JumpD;
-        jumpt = 2*jumpLim;
-    }
-    if(keyIsPressed && keys[32] && Jump){
-        ball[0].ay = -8;
-        ball[0].ax = JumpD;
-        jumpt = 2*jumpLim;
-    }
-    }
-    //reset translation
-    translate(camX - 200,camY - 200);
-    stroke(0, 0, 0);
-    //main menu
-    if(currentLevel === -1){
-        fill(4, 255, 0);
-        if(dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
-            fill(6, 194, 0);
-        }
-        ellipse(ball[0].x + 200 - camX,ball[0].y + 200 - camY,50,50);
-        fill(0, 0, 0);
-        textAlign(CENTER,CENTER);
-        textSize(17);
-        text("PLAY",ball[0].x + 200 - camX,ball[0].y + 200 - camY);
-        if(mouseIsPressed && dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
-            level(0);
-            check = 0;
-        }
+    noStroke();
+    textSize(30);
+    text("Click to start", 200, 200);
+  }
+  if(focused){
+  if(start){
+    //set level to current level
+    level(currentLevel);
+    start = false;
+  }
+  //time after collisions were you can jump
+  jumpt++;
+  if(jumpt > jumpLim){
+      Jump = false;
+  }
 
-        fill(219, 219, 219);
-        if(dist(mouseX,mouseY,ball[2].x + 200 - camX,ball[2].y + 200 - camY) < 74/2){
-            fill(158, 158, 158);
-        }
-        ellipse(ball[2].x + 200 - camX,ball[2].y + 200 - camY,74,74);
-        fill(0, 0, 0);
-        textAlign(CENTER,CENTER);
-        textSize(14);
-        text("SETTINGS",ball[2].x + 200 - camX,ball[2].y + 200 - camY);
-        if(mouseIsPressed && dist(mouseX,mouseY,ball[2].x + 200 - camX,ball[2].y + 200 - camY) < 25){
-            currentLevel = -2;
-            level(-2);
-        }
+      JumpD = 0;
+      //spawns avalanch of balls in first level, made before contest
+      if(currentLevel === 0){
 
-        fill(219, 219, 219);
-        if(dist(mouseX,mouseY,ball[1].x + 200 - camX,ball[1].y + 200 - camY) < 25){
-            fill(158, 158, 158);
-        }
-        ellipse(ball[1].x + 200 - camX,ball[1].y + 200 - camY,50,50);
-        fill(0, 0, 0);
-        textAlign(CENTER,CENTER);
-        textSize(12);
-        text("LEVELS",ball[1].x + 200 - camX,ball[1].y + 200 - camY);
-        if(mouseIsPressed && dist(mouseX,mouseY,ball[1].x + 200 - camX,ball[1].y + 200 - camY) < 25){
-            currentLevel = -3;
-            level(-3);
-        }
-    }
-    //settings menu
-    if(currentLevel === -2){
-        fill(219, 219, 219);
-        if(!Brick){
-            fill(133, 133, 133);
-        }
-        if(Brick && dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
-            fill(158, 158, 158);
-        }
-        ellipse(ball[0].x + 200 - camX,ball[0].y + 200 - camY,50,50);
-        fill(0, 0, 0);
-        textAlign(CENTER,CENTER);
-        textSize(11);
-        text("low\ngraphics",ball[0].x + 200 - camX,ball[0].y + 200 - camY - 3);
-        if(mouseIsPressed && dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
-            Brick = false;
-        }
+      if(ball.length < 80/*number of max balls for first level*/){
+          ball.push({x:-1019 + random(0,50),y:540 - (25*25),ax:random(0,10),ay:10,s:15});
+      }
+      for(var i = 0; i < ball.length;i++){
+          if(i !== 0){
+              if(ball[i].y > 800){
+                  ball.splice(i,1);
+              }
+          }
+      }
+      }
+      //set background to blue
+      background(79, 161, 255);
+      fill(0, 0, 0);
+      //move camera twords player, made before contest
+      camX += (ball[0].x - camX)/dist(ball[0].x,ball[0].y,camX,camY)*1/(10/dist(ball[0].x,ball[0].y,camX,camY));
+      camY += (ball[0].y - camY)/dist(ball[0].x,ball[0].y,camX,camY)*1/(10/dist(ball[0].x,ball[0].y,camX,camY));
+      //translate screen to camera
+      translate(-camX + 200,-camY + 200);
+      //call checkpoint function
+      checkPoints();
+      //call ball function
+      balls();
+      //call block function
+      blocks();
+      //movement for player, made before contest
+      if(currentLevel >= 0){
+      if(keyIsPressed && keys[68] && ball[0].ax < 3){
+          ball[0].ax += 0.5;
+      }
+      if(keyIsPressed && keys[39] && ball[0].ax < 3){
+          ball[0].ax += 0.5;
+      }
+      if(keyIsPressed && keys[65] && ball[0].ax > -3){
+          ball[0].ax -= 0.5;
+      }
+      if(keyIsPressed && keys[37] && ball[0].ax > -3){
+          ball[0].ax -= 0.5;
+      }
+      if(keyIsPressed && keys[87] && Jump){
+          ball[0].ay = -8;
+          ball[0].ax = JumpD;
+          jumpt = 2*jumpLim;
+      }
+      if(keyIsPressed && keys[38] && Jump){
+          ball[0].ay = -8;
+          ball[0].ax = JumpD;
+          jumpt = 2*jumpLim;
+      }
+      if(keyIsPressed && keys[32] && Jump){
+          ball[0].ay = -8;
+          ball[0].ax = JumpD;
+          jumpt = 2*jumpLim;
+      }
+      }
+      //reset translation
+      translate(camX - 200,camY - 200);
+      stroke(0, 0, 0);
+      //main menu
+      if(currentLevel === -1){
+          fill(4, 255, 0);
+          if(dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
+              fill(6, 194, 0);
+          }
+          ellipse(ball[0].x + 200 - camX,ball[0].y + 200 - camY,50,50);
+          fill(0, 0, 0);
+          textAlign(CENTER,CENTER);
+          textSize(17);
+          text("PLAY",ball[0].x + 200 - camX,ball[0].y + 200 - camY);
+          if(mouseIsPressed && dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
+              level(0);
+              check = 0;
+          }
 
-        fill(219, 219, 219);
-        if(Brick){
-            fill(133, 133, 133);
-        }
-        if(Brick === false && dist(mouseX,mouseY,ball[1].x + 200 - camX,ball[1].y + 200 - camY) < 60/2){
-            fill(158, 158, 158);
-        }
-        ellipse(ball[1].x + 200 - camX,ball[1].y + 200 - camY,60,60);
-        fill(0, 0, 0);
-        textAlign(CENTER,CENTER);
-        textSize(14);
-        text("high\ngraphics",ball[1].x + 200 - camX,ball[1].y + 200 - camY - 5);
-        if(mouseIsPressed && dist(mouseX,mouseY,ball[1].x + 200 - camX,ball[1].y + 200 - camY) < 25){
-            Brick = true;
-        }
+          fill(219, 219, 219);
+          if(dist(mouseX,mouseY,ball[2].x + 200 - camX,ball[2].y + 200 - camY) < 74/2){
+              fill(158, 158, 158);
+          }
+          ellipse(ball[2].x + 200 - camX,ball[2].y + 200 - camY,74,74);
+          fill(0, 0, 0);
+          textAlign(CENTER,CENTER);
+          textSize(14);
+          text("SETTINGS",ball[2].x + 200 - camX,ball[2].y + 200 - camY);
+          if(mouseIsPressed && dist(mouseX,mouseY,ball[2].x + 200 - camX,ball[2].y + 200 - camY) < 25){
+              currentLevel = -2;
+              level(-2);
+          }
 
-        fill(219, 219, 219);
-        if(dist(mouseX,mouseY,ball[3].x + 200 - camX,ball[3].y + 200 - camY) < 25){
-            fill(158, 158, 158);
-        }
-        ellipse(ball[3].x + 200 - camX,ball[3].y + 200 - camY,50,50);
-        fill(0, 0, 0);
-        textAlign(CENTER,CENTER);
-        textSize(12);
-        text("Back",ball[3].x + 200 - camX,ball[3].y + 200 - camY);
-        if(mouseIsPressed && dist(mouseX,mouseY,ball[3].x + 200 - camX,ball[3].y + 200 - camY) < 25){
-            currentLevel = -1;
-            level(-1);
-        }
-    }
-    //level menu
-    if(currentLevel === -3){
-        fill(219, 219, 219);
-        if(dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
-            fill(158, 158, 158);
-        }
-        ellipse(ball[0].x + 200 - camX,ball[0].y + 200 - camY,50,50);
-        fill(0, 0, 0);
-        textAlign(CENTER,CENTER);
-        textSize(14);
-        text("Back",ball[0].x + 200 - camX,ball[0].y + 200 - camY);
-        if(mouseIsPressed && dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
-            currentLevel = -1;
-            level(-1);
-        }
-        //generate level buttons
-        for(var n = 1; n <= 3;n++){
-        fill(219, 219, 219);
-        //change color on hover
-        if(dist(mouseX,mouseY,ball[n].x + 200 - camX,ball[n].y + 200 - camY) < 15){
-            fill(158, 158, 158);
-        }
-        //draw botton
-        ellipse(ball[n].x + 200 - camX,ball[n].y + 200 - camY,30,30);
-        fill(0, 0, 0);
-        textAlign(CENTER,CENTER);
-        textSize(14);
-        text(n,ball[n].x + 200 - camX,ball[n].y + 200 - camY);
-        //go to level when clicked
-        if(mouseIsPressed && dist(mouseX,mouseY,ball[n].x + 200 - camX,ball[n].y + 200 - camY) < 15){
-            currentLevel = n-1;
-            level(n-1);
-            check = 0;
-        }
-        }
+          fill(219, 219, 219);
+          if(dist(mouseX,mouseY,ball[1].x + 200 - camX,ball[1].y + 200 - camY) < 25){
+              fill(158, 158, 158);
+          }
+          ellipse(ball[1].x + 200 - camX,ball[1].y + 200 - camY,50,50);
+          fill(0, 0, 0);
+          textAlign(CENTER,CENTER);
+          textSize(12);
+          text("LEVELS",ball[1].x + 200 - camX,ball[1].y + 200 - camY);
+          if(mouseIsPressed && dist(mouseX,mouseY,ball[1].x + 200 - camX,ball[1].y + 200 - camY) < 25){
+              currentLevel = -3;
+              level(-3);
+          }
+      }
+      //settings menu
+      if(currentLevel === -2){
+          fill(219, 219, 219);
+          if(!Brick){
+              fill(133, 133, 133);
+          }
+          if(Brick && dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
+              fill(158, 158, 158);
+          }
+          ellipse(ball[0].x + 200 - camX,ball[0].y + 200 - camY,50,50);
+          fill(0, 0, 0);
+          textAlign(CENTER,CENTER);
+          textSize(11);
+          text("low\ngraphics",ball[0].x + 200 - camX,ball[0].y + 200 - camY - 3);
+          if(mouseIsPressed && dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
+              Brick = false;
+          }
+
+          fill(219, 219, 219);
+          if(Brick){
+              fill(133, 133, 133);
+          }
+          if(Brick === false && dist(mouseX,mouseY,ball[1].x + 200 - camX,ball[1].y + 200 - camY) < 60/2){
+              fill(158, 158, 158);
+          }
+          ellipse(ball[1].x + 200 - camX,ball[1].y + 200 - camY,60,60);
+          fill(0, 0, 0);
+          textAlign(CENTER,CENTER);
+          textSize(14);
+          text("high\ngraphics",ball[1].x + 200 - camX,ball[1].y + 200 - camY - 5);
+          if(mouseIsPressed && dist(mouseX,mouseY,ball[1].x + 200 - camX,ball[1].y + 200 - camY) < 25){
+              Brick = true;
+          }
+
+          fill(219, 219, 219);
+          if(dist(mouseX,mouseY,ball[3].x + 200 - camX,ball[3].y + 200 - camY) < 25){
+              fill(158, 158, 158);
+          }
+          ellipse(ball[3].x + 200 - camX,ball[3].y + 200 - camY,50,50);
+          fill(0, 0, 0);
+          textAlign(CENTER,CENTER);
+          textSize(12);
+          text("Back",ball[3].x + 200 - camX,ball[3].y + 200 - camY);
+          if(mouseIsPressed && dist(mouseX,mouseY,ball[3].x + 200 - camX,ball[3].y + 200 - camY) < 25){
+              currentLevel = -1;
+              level(-1);
+          }
+      }
+      //level menu
+      if(currentLevel === -3){
+          fill(219, 219, 219);
+          if(dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
+              fill(158, 158, 158);
+          }
+          ellipse(ball[0].x + 200 - camX,ball[0].y + 200 - camY,50,50);
+          fill(0, 0, 0);
+          textAlign(CENTER,CENTER);
+          textSize(14);
+          text("Back",ball[0].x + 200 - camX,ball[0].y + 200 - camY);
+          if(mouseIsPressed && dist(mouseX,mouseY,ball[0].x + 200 - camX,ball[0].y + 200 - camY) < 25){
+              currentLevel = -1;
+              level(-1);
+          }
+          //generate level buttons
+          for(var n = 1; n <= 3;n++){
+          fill(219, 219, 219);
+          //change color on hover
+          if(dist(mouseX,mouseY,ball[n].x + 200 - camX,ball[n].y + 200 - camY) < 15){
+              fill(158, 158, 158);
+          }
+          //draw botton
+          ellipse(ball[n].x + 200 - camX,ball[n].y + 200 - camY,30,30);
+          fill(0, 0, 0);
+          textAlign(CENTER,CENTER);
+          textSize(14);
+          text(n,ball[n].x + 200 - camX,ball[n].y + 200 - camY);
+          //go to level when clicked
+          if(mouseIsPressed && dist(mouseX,mouseY,ball[n].x + 200 - camX,ball[n].y + 200 - camY) < 15){
+              currentLevel = n-1;
+              level(n-1);
+              check = 0;
+          }
+          }
 
 
 
 
-    }
-    //home button in levels
-    if(currentLevel >= 0){
-        fill(255, 255, 255);
-        //change fill color on hover
-        if(dist(mouseX,mouseY,370,30) < 15){
-            fill(150, 150, 150);
-        }
-        //draw button
-        ellipse(370,30,30,30);
-        fill(0, 0, 0);
-        rect(362,27,15,10);
-        triangle(362,27,370,21,378,27);
-        //go to main menu when clicked
-        if(mouseIsPressed && dist(mouseX,mouseY,370,30) < 15){
-            level(-1);
-        }
-    }
+      }
+      //home button in levels
+      if(currentLevel >= 0){
+          fill(255, 255, 255);
+          //change fill color on hover
+          if(dist(mouseX,mouseY,370,30) < 15){
+              fill(150, 150, 150);
+          }
+          //draw button
+          ellipse(370,30,30,30);
+          fill(0, 0, 0);
+          rect(362,27,15,10);
+          triangle(362,27,370,21,378,27);
+          //go to main menu when clicked
+          if(mouseIsPressed && dist(mouseX,mouseY,370,30) < 15){
+              level(-1);
+          }
+      }
+  }
 };
