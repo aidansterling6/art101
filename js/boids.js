@@ -1,21 +1,26 @@
 function setup() {
   createCanvas(400, 400);
   textAlign(CENTER, CENTER);
+  for (let element of document.getElementsByClassName("p5Canvas")) {
+    element.addEventListener("contextmenu", (e) => e.preventDefault());
+  }
 }
 
-var Width = 1000;
-var Height = 1000;
-var Scale = 0.4;
-var boidCount = 1000;
-var border = 10;
+var Width = 600;
+var Height = 600;
+var Scale = 400/600;
+var boidCount = 350;
+var mouseDist = 100;
+var mouseForce = 0.3;
+var border = 7;
 var borderForce = 0.1;
 var speedDrag = 0.1;
 var alignSpeedForce = 0.01;
 var spacingForceTouch = 0.5;
 var spacingForceMin = 0.1;
 var spacingForceMax = 0.2;
-var interactDist = 17;
-var targetDistMax = 17;
+var interactDist = 15;
+var targetDistMax = 15;
 var targetDistMin = 12;
 var targetDistTouch = 7;
 var gridSize = 20;
@@ -55,11 +60,11 @@ var boid = function(){
             }
         }
     }
-    fill(0, 0, 0);
+    stroke(0, 0, 0);
     for(var x = 0; x < boids.length;x++){
         for(var y = 0; y < boids[x].length;y++){
             for(var i = 0; i < boids[x][y].length;i++){
-                stroke(0, 0, 0);
+                fill(0, 0, 0);
                 ellipse(boids[x][y][i].x, boids[x][y][i].y, 5, 5);
                 line(boids[x][y][i].x, boids[x][y][i].y, boids[x][y][i].x + boids[x][y][i].sx*10, boids[x][y][i].y + boids[x][y][i].sy*10);
             }
@@ -95,6 +100,9 @@ var boid = function(){
                     boids[x][y][i].sx *= 1 + speedDrag;
                     boids[x][y][i].sy *= 1 + speedDrag;
                 }
+                if(dist(boids[x][y][i].x, boids[x][y][i].y, mouseX, mouseY) < 30){
+
+                                    }
                 for(var x1 = -1; x1 <= 1;x1++){
                     for(var y1 = -1; y1 <= 1;y1++){
                         if(x + x1 >= 0 && x + x1 < boids.length && y + y1 >= 0 && y + y1 < boids[x + x1].length){
@@ -122,14 +130,21 @@ var boid = function(){
                                     } else if(d < targetDistMin){
                                         boids[x][y][i].sx += spacingForceMin*(boids[x][y][i].x - boids[x + x1][y + y1][o].x)/d;
                                         boids[x][y][i].sy += spacingForceMin*(boids[x][y][i].y - boids[x + x1][y + y1][o].y)/d;
-                                    } else if(d > targetDistMax){
-                                        boids[x][y][i].sx -= spacingForceMax*(boids[x][y][i].x - boids[x + x1][y + y1][o].x)/d;
-                                        boids[x][y][i].sy -= spacingForceMax*(boids[x][y][i].y - boids[x + x1][y + y1][o].y)/d;
                                     }
+
+
                                 }
                             }
                         }
                     }
+                }
+                var dm = dist(boids[x][y][i].x, boids[x][y][i].y, mouseX/Scale, mouseY/Scale);
+                if(dm < mouseDist && mouseIsPressed && mouseButton === LEFT){
+                    boids[x][y][i].sx -= mouseForce*(boids[x][y][i].x - mouseX/Scale)/dm;
+                    boids[x][y][i].sy -= mouseForce*(boids[x][y][i].y - mouseY/Scale)/dm;
+                } if(dm < mouseDist && mouseIsPressed && mouseButton === RIGHT){
+                    boids[x][y][i].sx += mouseForce*(boids[x][y][i].x - mouseX/Scale)/dm;
+                    boids[x][y][i].sy += mouseForce*(boids[x][y][i].y - mouseY/Scale)/dm;
                 }
 
 
