@@ -15,6 +15,7 @@ body {
   border: solid 3px #88A382;
   padding: 10px;
 }
+
 img {
   width: 300px;
 }
@@ -29,7 +30,9 @@ img {
   color: #CFE9C8;
   font-size: 30px;
 }
-
+#output{
+  font-family: monospace;
+}
 #challenges {
   color: #CFE9C8;
   font-size: 30px;
@@ -38,4 +41,11 @@ img {
 #problems {
   color: #CFE9C8;
   font-size: 30px;
+}
+
+
+a {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
 }
