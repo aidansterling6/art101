@@ -1,0 +1,159 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background-color: #D1C38F;
+  font-family: "Monaco", monospace;
+}
+.title {
+  background-color: #8E7951;
+  border: solid 2px #453422;
+  border-radius: 5px;
+  padding: 20px;
+  font-family: "Monaco", monospace;
+}
+.topbox {
+  background-color: #8E7951;
+  border: solid 2px #453422;
+  border-radius: 5px;
+  padding: 20px;
+  height: 100px;
+  font-family: "Monaco", monospace;
+}
+.map {
+  background-color: #8E7951;
+  border: solid 2px #453422;
+  border-radius: 5px;
+  padding: 20px;
+  height: 500px;
+}
+#ucscmap {
+     display: inline-block;
+     float: left;
+}
+#ucscmapinfo {
+     background-color: #D1C38F;
+     border: solid 2px #453422;
+     border-radius: 5px;
+     padding: 20px;
+     width: 740px;
+     height: 455px;
+     font-family: "Monaco", monospace;
+     font-size: 15px;
+     top: -500px;
+     left: 651px;
+     display: inline-block;
+     float: left;
+     margin-left: 20px;
+}
+.transPressed {
+     background-color: rgba(0, 0, 0, .3);
+     border: solid 2px #000000;
+}
+.transNotPressed {
+     background-color: transparent;
+     border: solid 0px #000000;
+}
+.invisButton {
+     position: absolute;
+     width: 28px;
+     height: 20px;
+}
+#Authors {
+  left: 30px;
+  font-family: "Monaco", monospace;
+
+}
+#Sources {
+  left: 315px;
+  font-family: "Monaco", monospace;
+}
+#Animals {
+  left: 565px;
+  font-family: "Monaco", monospace;
+}
+#Plants {
+  left: 815px;
+  font-family: "Monaco", monospace;
+}
+.dropdown {
+  position: absolute;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  width: 200px;
+  height: 30px;
+   background-color: #A4A55B;
+  font-family: "Monaco", monospace;
+}
+.back {
+   background-color: #8E7951;
+}
+.link {
+     position: absolute;
+     user-select: none;
+     -moz-user-select: none;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     border: solid 2px #453422;
+     border-radius: 5px;
+     padding: 5px;
+     width: 350px;
+     height: 510px;
+     font-family: "Monaco", monospace;
+}
+.linkhead {
+     position: absolute;
+     user-select: none;
+     -moz-user-select: none;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     background-color: #8E7951
+     border: solid 2px #453422;
+     border-radius: 5px;
+     padding: 20px;
+     height: 20px;
+     width: 305px;
+     font-size: 25px;
+     text-align: center;
+     top: 5px;
+     left: 5px;
+     font-family: "Monaco", monospace;
+}
+.linkp {
+     position: absolute;
+     user-select: none;
+     -moz-user-select: none;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     /* background-color: #AAAAAA; */
+     border: solid 2px #453422;
+     border-radius: 5px;
+     top: 105px;
+     left: 5px;
+     padding: 20px;
+     width: 305px;
+     height: 365px;
+     font-family: "Monaco", monospace;
+}
+.linktab {
+     position: absolute;
+     user-select: none;
+     -moz-user-select: none;
+     -webkit-user-select: none;
+     -ms-user-select: none;
+     background-color: #8E7951
+     border: solid 2px #453422;
+     border-radius: 5px;
+     top: 67px;
+     font-size: 10px;
+     /* left: 5px; */
+     /* padding: 5px; */
+     /* width: 20px; */
+     /* height: 26px; */ */
+     font-family: "Monaco", monospace;
+}
+.selected {
+     background-color: #A4A55B;
+}
