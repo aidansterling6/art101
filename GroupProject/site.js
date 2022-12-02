@@ -1,6 +1,32 @@
+//select a spacific link
+var select = function(id){
+     $(".link").removeClass("picked");
+     $("#" + id).addClass("picked");
+     console.log("hi");
+}
+
+
+//adds select functions to all links
+var selectors = function(){
+     $("#CapeWeedL").click(function(){select("CapeWeed")});
+     $("#CoastalLiveOakL").click(function(){select("CoastalLiveOak")});
+     $("#CoastalRedwoodL").click(function(){select("CoastalRedwood")});
+     $("#DouglasFirL").click(function(){select("DouglasFir")});
+     $("#PacificMadroneL").click(function(){select("PacificMadrone")});
+
+     $("#BananaSlugL").click(function(){select("BananaSlug")});
+     $("#Black-TailedDeerL").click(function(){select("Black-TailedDeer")});
+     $("#EasternGraySquirrelL").click(function(){select("EasternGraySquirrel")});
+     $("#WildTurkeyL").click(function(){select("WildTurkey")});
+
+     $("#MonarchButterflyL").click(function(){select("MonarchButterfly")});
+     $("#OhloneTigerBeetleL").click(function(){select("OhloneTigerBeetle")});
+}
 //code for dropdown menus
 var dropDownCode = function(){
-     var dropIds = ["Authors", "Sources", "Animals", "Plants"];
+     //ID's of all dropdown menus
+     var dropIds = ["Authors", "Sources", "Plants", "Animals", "Arthropods", "Fungi", "Links"];
+     //buttons in dropdown menus
      var Buttons = [
           [
                {text:"Aidan Sterling", func: function(){window.location.href = "https://aidansterling6.github.io/art101/"}},//https://aidansterling6.github.io/art101/
@@ -16,19 +42,29 @@ var dropDownCode = function(){
                {text:"Source 4", func: function(){window.location.href = "https://www.onceuponawatershed.org/coastliveoak#:~:text=The%20Coast%20Live%20Oak%20provides,turkey%20vultures%20and%20many%20more"}}
           ],
           [
-               {text:"Wild Turkey", func: function(){$(window).scrollTop(1000)}},
-               {text:"Bannana Slug", func: function(){$(window).scrollTop(1000)}},
-               {text:"Eastern Grey Squirrel", func: function(){$(window).scrollTop(1000)}},
-               {text:"Black-Tailed Deer", func: function(){$(window).scrollTop(1000)}},
+               {text:"Cape Weed", func: function(){document.getElementById("CapeWeed").scrollIntoView();select("CapeWeed");}},
+               {text:"Coastal Live Oak", func: function(){document.getElementById("CoastalLiveOak").scrollIntoView();select("CoastalLiveOak");}},
+               {text:"Coastal Redwood", func: function(){document.getElementById("CoastalRedwood").scrollIntoView();select("CoastalRedwood");}},
+               {text:"Douglas Fir", func: function(){document.getElementById("DouglasFir").scrollIntoView();select("DouglasFir");}},
+               {text:"Pacific Madrone", func: function(){document.getElementById("PacificMadrone").scrollIntoView();select("PacificMadrone");}},
           ],
           [
-               {text:"CoastalRedwood", func: function(){$(window).scrollTop(598)}},
-               {text:"DouglasFir", func: function(){$(window).scrollTop(598)}},
-               {text:"PacificMadrone", func: function(){$(window).scrollTop(1280)}},
-               {text:"CoastalLiveOak", func: function(){$(window).scrollTop(1280)}}
+               {text:"Banana Slug", func: function(){document.getElementById("BananaSlug").scrollIntoView();select("BananaSlug");}},
+               {text:"Black-Tailed Deer", func: function(){document.getElementById("Black-TailedDeer").scrollIntoView();select("Black-TailedDeer");}},
+               {text:"Eastern Gray Squirrel", func: function(){document.getElementById("EasternGraySquirrel").scrollIntoView();select("EasternGraySquirrel");}},
+               {text:"Wild Turkey", func: function(){document.getElementById("WildTurkey").scrollIntoView();select("WildTurkey");}},
+          ],
+          [
+               {text:"Monarch Butterfly", func: function(){document.getElementById("MonarchButterfly").scrollIntoView();select("MonarchButterfly");}},
+               {text:"Ohlone Tiger Beetle", func: function(){document.getElementById("OhloneTigerBeetle").scrollIntoView();select("OhloneTigerBeetle");}}
+          ],
+          [
+
+          ],
+          [
+               {text:"Natural History Center", func: function(){window.location.href = "https://norriscenter.ucsc.edu/index.html"}}//https://norriscenter.ucsc.edu/index.html
           ]
      ];
-     //element.scrollLeft
      var buttonHeight = 30;
      var Widths = [];
      var Heights = [];
@@ -50,7 +86,7 @@ var dropDownCode = function(){
           bottoms[i].css("width", (Widths[i]) + "px");
           temp.append(bottoms[i]);
           for(var o = 0; o < Buttons[i].length;o++){
-               Buttons[i][o].button = $("<button>" + Buttons[i][o].text + "</button>");
+               Buttons[i][o].button = $("<button class='dropdownButton'>" + Buttons[i][o].text + "</button>");
                Buttons[i][o].button.css("width", (Widths[i] + WShift) + "px");
                Buttons[i][o].button.css("height", buttonHeight + "px");
                Buttons[i][o].button.css("position", "absolute");
@@ -138,8 +174,9 @@ var dropDownCode = function(){
           Index++;
      }
 }
-
+//function for the ucsc map and buttons
 var mapCode = function(){
+     //text that apears when you click on the buttons on the map
      var mapTexts = {
           ib1:[
                "This is a hot, dry plant community that is characterized mostly by shrubs. Here in Santa ",
@@ -169,7 +206,7 @@ var mapCode = function(){
                "Areas developed and cultivated by humans exist primarily on the main campus where there are buildings, plantings around buildings, parking lots, and gardens. In these areas, the natural landscape is “disturbed” by human activity and thus altered in some way. The Arboretum, the CASFS Farm, Chadwick Garden, and the various college gardens are all examples of landscaped areas. Developed areas essentially include any piece of land that has been built on or paved over. These places often host invasive plants, as many of these species prefer and thrive in environments where the soil is disturbed. While invasive plants thrive in degraded habitats, native plants do not do so well and are at a disadvantage. This allows weedy species to outcompete native plants and dominate disturbed areas."
           ],
           ib5:[
-               "hello"
+               "The Dwarf Redwood forest in Santa Cruz is considered to be a unique feature of the area, with no redwoods over 30ft tall, and all are a much lighter green color than normal. The other features of these trees suggest they are of mature age, but scientists disagree over the cause of their short stature. Some scientists believe these are just young trees, some argue that they are genetically unique, and others theorize their height is caused by poor soil. However in 1970,  soil scientist Dr. Hans Jenny proved that these were not young trees, and discovered one that was over 300 years old although only being 6ft tall."
           ],
           ib6:[
                "All those who visit UC Santa Cruz are familiar with this plant community, as coast redwoods (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because redwoods exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the redwoods create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), redwood violet (Viola sempervirens), and redwood sorrel (Oxalis oregana). Some tree species, like Douglas-fir (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the redwoods. Additionally, there are some stands of redwoods that are categorized as “dwarf redwoods” on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height. Stands of these smaller trees, which grow more densely than the other redwoods on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned."
@@ -178,7 +215,7 @@ var mapCode = function(){
                "Grassland dominates most of the lower half of campus and pockets of Upper Campus. Large meadows, like the East Meadow, the Great Meadow, and Mima Meadow, are composed mostly of annual plants, especially grasses. Most of the grasses and herbaceous plants in these meadows are non-native and/or invasive, like ripgut brome (Bromus diandrus), slender wild oat (Avena barbata), rattlesnake grass (Briza maxima), wild radish (Raphanus spp.), stork's bill (Erodium botrys), and rough cat's ear (Hypochaeris radicata), which can have detrimental impacts on the native ecosystem. However, some native species have managed to persist. Sky lupine (Lupinus nanus) and California poppies (Eschscholzia californica) still bloom in abundance in the spring, painting the meadows with patches of blue and orange. Other common native grassland species are sun cups (Taraxia ovata), Fremont's star lily (Toxicoscordion fremontii), California buttercup (Ranunculus californicus), blue-eyed grass (Sisyrinchium bellum), coyote brush (Baccharis pilularis var. consanguinea), purple needlegrass (Stipa pulchra), and California oatgrass (Danthonia californica). While the large lower campus meadows have spectacular views and a host of plant life, the meadows of Upper Campus are truly the jackpot for botanizing. These meadows, like the Marshall Fields complex, are a specific type of grassland called coastal prairie that sit on ancient marine terraces. This plant community is especially diverse. In addition to the native and non-native plants found on lower campus, this community also includes colorful species like harlequin lotus (Hosackia gracilis), yellow owl's clover (Triphysaria versicolor), golden brodiaea (Triteleia ixioides), mariposa lilies (Calochortus spp.), and brodieas (Brodiaea spp.). Many of these species are rare or restricted in range, such as Point Reyes horkelia (Horkelia marinensis), and large flowered mariposa (Calochortus uniflorus)"
           ],
           ib8:[
-               "Areas developed and cultivated by humans exist primarily on the main campus where there are buildings, plantings around buildings, parking lots, and gardens. In these areas, the natural landscape is “disturbed” by human activity and thus altered in some way. The Arboretum, the CASFS Farm, Chadwick Garden, and the various college gardens are all examples of landscaped areas. Developed areas essentially include any piece of land that has been built on or paved over. These places often host invasive plants, as many of these species prefer and thrive in environments where the soil is disturbed. While invasive plants thrive in degraded habitats, native plants do not do so well and are at a disadvantage. This allows weedy species to outcompete native plants and dominate disturbed areas."
+               "Areas developed and cultivated by humans exist primarily on the main campus where there are buildings, plantings around buildings, parking lots, and gardens. In these areas, the natural landscape is \"disturbed\" by human activity and thus altered in some way. The Arboretum, the CASFS Farm, Chadwick Garden, and the various college gardens are all examples of landscaped areas. Developed areas essentially include any piece of land that has been built on or paved over. These places often host invasive plants, as many of these species prefer and thrive in environments where the soil is disturbed. While invasive plants thrive in degraded habitats, native plants do not do so well and are at a disadvantage. This allows weedy species to outcompete native plants and dominate disturbed areas."
           ],
           ib9:[
                "This diverse vegetation community is found on the main campus in ",
@@ -204,11 +241,31 @@ var mapCode = function(){
                "The UCSC Campus Natural Reserve covers 410 acres of protected natural lands on the UC Santa Cruz campus. This land was set aside as part of the UCSC Long Range Development Plan to preserve the natural communities for teaching, field research and natural history interpretation. These lands are an outdoor classroom and living library and laboratory. Students can literally walk outside their classrooms and dorms and study nature in nature."
           ],
      };
+     //widths of the map buttons from top to bottom
+     var mapWidths = [
+          193,
+          125,
+          150,
+          130,
+          230,
+          165,
+          100,
+          135,
+          135,
+          193,
+          132,
+          196,
+          280
+     ];
+     var MapInfo = $("#ucscmapinfo");
+     for(var i = 1; i <= 13;i++){
+          $("#ib" + i).css("width", mapWidths[i - 1] + "px");
+     }
      for(var i = 1; i <= 13;i++){
 
           tempButton = $("#ib" + i);
           tempButton.addClass("transNotPressed");
-          tempButton.click(function(){
+          tempButton.hover(function(){
                //console.log($(this).siblings("#ucscmapinfo"));
                //console.log($(this).attr('id'));
 
@@ -222,7 +279,7 @@ var mapCode = function(){
                for(var o = 0; o < mapTexts[thisID].length;o++){
                      temptxt += mapTexts[thisID][o];
                }
-               $(this).siblings("#ucscmapinfo").html(temptxt);
+               MapInfo.html(temptxt);
           });
      }
      $("#ib1").removeClass("transNotPressed");
@@ -231,7 +288,7 @@ var mapCode = function(){
      for(var o = 0; o < mapTexts["ib1"].length;o++){
            temptxt += mapTexts["ib1"][o];
      }
-     $("#ucscmapinfo").html(temptxt);
+     MapInfo.html(temptxt);
 }
 
 //code for links (the animals and plants linked together at the bottom)
@@ -239,6 +296,10 @@ var linkCode = function(){
      var width = 295 + 50;
      var tabs = 3;
      var padding = 5;
+     //data for animals and plants, id corresponds to an id in html,
+     //title is the title displayed in a linkheader
+     //tabs is an array of the tabs and their data,
+     //the info in each tab is html for the paragraph in each tab
      var animal_data =
      [
           {
@@ -246,21 +307,23 @@ var linkCode = function(){
                title: "Coastal Redwood",
                tabs:[
                     {
-                         title: "Coastal Redwoods",
+                         title: "Information",
                          info:[
+                              "<image style='width: 150px' src='img/redwood1.png'>",
+                              "<image style='width: 150px' src='img/redwood2.png'>",
                               "height: up to 60 meters<br>",
                               "cone/flower size: 1.3-1.5 cm<br>",
                               "cone/flower description: spherical, woody cones with flat sets of alternating needles.<br>",
                               "bark/skin: dark redish brown, fibrous and overlapting itself downward.",
-                              "facts: can be found in every country except Antartica, and they often use fog as their watersource.<br>",
+                              "facts: can be found in every country except Antartica, and they often use fog as their watersource.<br>"
                          ]
                     },
                     {
-                         title: "Coastal Redwood Relationships",
+                         title: "Relationships",
                          info:[
-                              "-Coastal Redwoods are related to coast redwood, giant sequoia, dawn redwood and alerce.<br>",
-                              "-Mycorrhizal fungi form a mutualistic relationship with the redwoods and other plants in the forest. The fungi will combine their mycelium with the tree's roots, this makes it easier for the trees to get nutrients and moisture, while the fungi gains sugars from the trees.<br>",
-                              "-Home of northern spotted owl"
+                              "Coastal Redwoods are related to coast redwood, giant sequoia, dawn redwood and alerce.<br>",
+                              "Mycorrhizal fungi form a mutualistic relationship with the redwoods and other plants in the forest. The fungi will combine their mycelium with the tree's roots, this makes it easier for the trees to get nutrients and moisture, while the fungi gains sugars from the trees.<br>",
+                              "Home of northern spotted owl"
                          ]
                     },
                ]
@@ -270,21 +333,23 @@ var linkCode = function(){
                title: "Douglas Fir",
                tabs:[
                     {
-                         title: "Douglas Fir",
+                         title: "Information",
                          info:[
+                              "<image style='width: 150px' src='img/douglasfir1.png'>",
+                              "<image style='width: 150px' src='img/douglasfir2.png'>",
                               "height: up to 67 meters<br>",
                               "cone/flower size: 4-20cm<br>",
                               "cone/flower description: elongated conesoverlapping scalelike sections, short needles spiraling in all directions from twigs<br>",
                               "bark/skin:Greyborwn spit furrowed bark, younger bark is smooth<br>",
-                              "facts: Grows 13 - 24 inches per year, and it is an evergreen tree.<br>",
+                              "facts: Grows 13 - 24 inches per year, and it is an evergreen tree.<br>"
                          ]
                     },
                     {
-                         title: "Douglas Fir Relationships",
+                         title: "Relationships",
                          info:[
-                              "-Squirrels, rabbits, and other small animals use seeds; deer, elk, and antelope eat twigs and foliage.<br>",
-                              "-Douglas fir trees are aided by Paper Birch trees. Sugars flow between the two trees roots, with a 	bigger gain for the Douglas fir trees. An underground fungi called ectomycorrhizae, transfers this nutrience. The fungi benefits from this transaction as well by keeping a small amount of carbohydrates and vitamins from the tree, which increases the roots ability to absorb water. This increases water flow and essential nutrients.<br>",
-                              "- also a home of northern spotted owl<br>"
+                              "<a href='#EasternGraySquirrel' id='EasternGraySquirrelL'>Squirrels</a>, rabbits, and other small animals use seeds; deer, elk, and antelope eat twigs and foliage.<br>",
+                              "Douglas fir trees are aided by Paper Birch trees. Sugars flow between the two trees roots, with a 	bigger gain for the Douglas fir trees. An underground fungi called ectomycorrhizae, transfers this nutrience. The fungi benefits from this transaction as well by keeping a small amount of carbohydrates and vitamins from the tree, which increases the roots ability to absorb water. This increases water flow and essential nutrients.<br>",
+                              "A home for northern spotted owl<br>"
                          ]
                     },
                ]
@@ -294,8 +359,10 @@ var linkCode = function(){
                title: "Pacific Madrone",
                tabs:[
                     {
-                         title: "Pacific Madrone",
+                         title: "Information",
                          info:[
+                              "<image style='width: 130px' src='img/pacificmadrone1.png'>",
+                              "<image style='width: 150px' src='img/pacificmadrone2.png'>",
                               "height: Up to 40 meters<br>",
                               "blooms: April, May<br>",
                               "cone/flower size: small<br>",
@@ -305,10 +372,10 @@ var linkCode = function(){
                          ]
                     },
                     {
-                         title: "Pacific Madrone Relationships",
+                         title: "Relationships",
                          info:[
-                              "-Mycorrhizal fungi form a mutualistic relationship with the redwoods and other plants(Pacific Madrone) in the forest. The fungi will combine their mycelium with the tree's roots, this makes it easier for the trees to get nutrients and moisture, while the fungi gains sugars from the trees.<br>",
-                              "-Has berries that birds, deer, raccoons, and bears like to eat."
+                              "Mycorrhizal fungi form a mutualistic relationship with the redwoods and other plants(Pacific Madrone) in the forest. The fungi will combine their mycelium with the tree's roots, this makes it easier for the trees to get nutrients and moisture, while the fungi gains sugars from the trees.<br>",
+                              "Has berries that birds, deer, raccoons, and bears like to eat."
                          ]
                     }
                ]
@@ -318,8 +385,10 @@ var linkCode = function(){
               title: "Coastal Live Oak",
               tabs:[
                    {
-                        title: "Coastal Live Oak",
+                        title: "Information",
                         info:[
+                             "<image style='width: 150px' src='img/coastliveoak1.jfif'>",
+                             "<image style='width: 130px' src='img/coastliveoak2.png'>",
                              "height:10-25 meters <br>",
                              "blooms: Feb-April<br>",
                              "cone/flower size: very small<br>",
@@ -329,16 +398,168 @@ var linkCode = function(){
                         ]
                    },
                    {
-                        title: "Coastal Live Oak Relationships",
+                        title: "Relationships",
                         info:[
-                             "-The Coast Live Oak provides food and habitat for many species of mammals and birds, including but not limited to acorn woodpeckers, scrub jays, the oak titmouse, squirrels, woodrats, turkey vultures and many more.<br>",
-                             "-Drops acorns at different times to avoid consumption by squirrels<br>",
-                             "-Leaf mulch helps repel slugs from soil<br>",
+                             "The Coast Live Oak provides food and habitat for many species of mammals and birds, including but not limited to acorn woodpeckers, scrub jays, the oak titmouse, squirrels, woodrats, turkey vultures and many more.<br>",
+                             "Drops acorns at different times to avoid consumption by <a href='#EasternGraySquirrel' id='EasternGraySquirrelL'>squirrels</a><br>",
+                             "Leaf mulch helps repel slugs from soil<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "BananaSlug",
+              title: "Banana Slug",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 150px' src='img/bananaslug1.png'>",
+                             "<image style='width: 150px' src='img/bananaslug2.png'>",
+                             "description: Bright yellow, sometimes with black spots. Hoodlike flap on the head. Thin vertical stripes on bottom<br>",
+                             "facts: Licking them can numb your tongue, the second largest slug in the world. Can grow up to 10 inches long. Can move 6.5 inches per minute. <br>"
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Banana slugs have a mutually symbiotic relationship with <a href='#CoastalRedwood' id='CoastalRedwoodL'>redwood trees</a>. This relationship is symbiotic because the banana slugs eat plant species that compete with redwoods for nutrients.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "EasternGraySquirrel",
+              title: "Eastern Gray Squirrel",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 150px' src='img/easterngreysquirrel1.png'>",
+                             "<image style='width: 150px' src='img/easterngreysquirrel2.png'>",
+                             "description: Light grey with a white underside. Puffy tail and black eyes <br>",
+                             "facts: Very good sense of smell, this helps them find hidden food. They communicate with sounds and body language.<br>"
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Eastern grey squirrels have a mutualistic relationship with <a href='#CoastalLiveOak' id='CoastalLiveOakL'>oak trees</a>. This is because squirrels leave acorns in hidden places to eat later, but sometimes they can't remember all of there hiding places. These acorns often end up growing and helping increase oak tree populations.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "WildTurkey",
+              title: "Wild Turkey",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 150px' src='img/wildturkey1.png'>",
+                             "<image style='width: 150px' src='img/wildturkey2.png'>",
+                             "description: Rounded bodies, with plume of brown feathers as a tail, red flap of skin under beak<br>",
+                             "facts: Only the male turkeys gobble. These turkeys can fly, and they sleep in trees <br>",
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Each flock of turkeys are usually made up of siblings, and they band together by gender.Wild turkey eggs have many predators as well such as snakes, skunks, raccoons, coyote, and many more.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "Black-TailedDeer",
+              title: "Black-Tailed Deer",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 150px' src='img/blacktaildeer1.png'>",
+                             "<image style='width: 150px' src='img/blacktaildeer2.png'>",
+                             "description: Grey, white and orange-brown patches, black tail, males have antlers  <br>",
+                             "facts: Is a sub-species of mule deer. Antlers grow under a layer of skin called velvet.<br>",
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Black-tailed deer have fierce predators that include black bears, coyotes, wolves, and mountain lions. Blacktail deer can live up to ten years in the wild but typically don't make it past six years.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "CapeWeed",
+              title: "Cape Weed",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "height:15cm - 30cm<br>",
+                             "blooms: Summer and Fall",
+                             "cone/flower size: 5 cm across<br>",
+                             "cone/flower description:Pale yellow daisy-like flowers with a darker ring and a black or yellow center, are borne singly on roughly hairy stalks.<br>",
+                             "facts: Thrives in full sun and requires a low to moderate amount of water. Cape weed has become an invasive species in California; the plant originates from South Africa. <br>",
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "The Cape Weed flower attracts bees and butterflies.<br>", //add link for butterfly or bee
+                             "Can aggressively push native herbs out of their natural locations.<br>", //add link for an herb in the area?
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "MonarchButterfly",
+              title: "Monarch Butterfly",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 150px' src='img/monarchbutterfly1.jfif'>",
+                             "<image style='width: 150px' src='img/monarchbutterfly2.jfif'>",
+                             "Monarch butterflies migrate 1,200 and 2,800 miles from the northeastern United States and southeastern Canada ",
+                             "to mountain forests in central Mexico. Irregularities in weather and their food supply caused by climate change ",
+                             "have caused the monarch butterfly to become endangered. These changes have caused more adult Monarch Butterflies to ",
+                             "die and have made food scarcer for caterpillars."
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "The main food source of Monarch Butterflies is milkweed. The decline of milkweed plants is one of the main causes of their endangerment." //add link for an herb in the area?
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "OhloneTigerBeetle",
+              title: "Ohlone Tiger Beetle",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 130px' src='img/ohlonetigerbeetle1.jfif'>",
+                             "<image style='width: 150px' src='img/ohlonetigerbeetle2.jfif'>",
+                             "The Ohlone tiger beetle is an endangered beetle that only lives in a few places on earth. Adults are active on sunny days from January ",
+                             "and May. These beetles use the bare ground to hunt, mate, and lay eggs. They are currently endangered due to habitat loss, invasive plants, ",
+                             "and lower levels of bare ground than ideal. Because they like bare ground, they can often be found on paths and sidewalks, so slowing down and ",
+                             "watching out for them can help them survive.",
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Ohlone tiger beetles eat other insects such as flies, caterpillars, ants, grasshoppers, spiders, and other invertebrates." //add link for an herb in the area?
                         ]
                    }
               ]
         }
-
 
      ];
      var links = [];
@@ -347,6 +568,9 @@ var linkCode = function(){
      });
      for(var i = 0; i < links.length;i++){
           links[i].id = links[i].body.attr('id');
+          links[i].body.css("left", (parseInt(links[i].body.css("left")) * 400 + 50) + "px");
+          links[i].body.css("top", (parseInt(links[i].body.css("top")) * 550 + 780) + "px");
+          console.log((links[i].body.css("left")));
           links[i].data = {title:"none", tabs:[{title:"none"}]};
           for(var a = 0; a < animal_data.length; a++){
                if(animal_data[a].id == links[i].id){
@@ -401,6 +625,7 @@ var linkCode = function(){
                     }
                     //console.log(tabData.info);
                     $(this).siblings(".linkp").html(temptxt);
+                    selectors();
                });
                // top: 105px;
                // left: 5px;
@@ -424,8 +649,7 @@ var linkCode = function(){
 }
 
 
-
+//call all functions
 dropDownCode();
 mapCode();
 linkCode();
-//window.setInterval(function(){console.log($(document).scrollTop())}, 10);
