@@ -4,19 +4,18 @@ var select = function(id){
      $("#" + id).addClass("picked");
      //console.log("hi");
 }
-$(window).scroll(function() {
-    if ($(this).scrollTop() == 0) {
-         console.log("hi");
-         $("html#this").css("scroll-behavior", "auto");
-         this.scrollTo(0, 0);
-    }
-});
+// $(window).scroll(function() {
+//     if ($(this).scrollTop() == 0) {
+//          console.log("hi");
+//          $("html#this").css("scroll-behavior", "auto");
+//          this.scrollTo(0, 0);
+//     }
+// });
 var smooth = function(){
      $("html#this").css("scroll-behavior", "smooth");
 }
 //adds select functions to all links
 var selectors = function(){
-     $("html#this").css("scroll-behavior", "smooth");
      $("#CapeWeedL").click(function(){select("CapeWeed")});
      $("#CoastalLiveOakL").click(function(){select("CoastalLiveOak")});
      $("#CoastalRedwoodL").click(function(){select("CoastalRedwood")});
@@ -181,8 +180,11 @@ var dropDownCode = function(){
                Buttons[i][o].button.css("width", (Width + WShift) + "px");
                Buttons[i][o].button.css("height", buttonHeight + "px");
                Buttons[i][o].button.css("font-size", "1vw");
-               if(parseInt(Buttons[i][o].button.css("font-size")) < 11){
+               if(parseFloat(Buttons[i][o].button.css("font-size")) < 11){
                     Buttons[i][o].button.css("font-size",  "11px");
+               }
+               if(parseFloat(Buttons[i][o].button.css("font-size")) > 15){
+                    Buttons[i][o].button.css("font-size",  "15px");
                }
                Buttons[i][o].button.css("top", ((o * buttonHeight) + YOffsets[i]) + "px");
                Buttons[i][o].button.css("left", 0 + "px");
@@ -206,9 +208,13 @@ var dropDownCode = function(){
           for(var i = 0; i < tops.length;i++){
                tops[i].css("width", (Width) + "px");
                tops[i].css("font-size",  "1vw");
-               if(parseInt(tops[i].css("font-size")) < 11){
+               if(parseFloat(tops[i].css("font-size")) < 11){
                     tops[i].css("font-size",  "11px");
                }
+               if(parseFloat(tops[i].css("font-size")) > 15){
+                    tops[i].css("font-size",  "15px");
+               }
+               console.log(parseInt(tops[i].css("font-size")));
           }
      }
      setInterval(updateall, 0.1);
@@ -433,8 +439,8 @@ var linkCode = function(){
                     {
                          title: "Information",
                          info:[
-                              "<image style='width: 150px' src='img/Douglasfir1.png'>",
-                              "<image style='width: 150px' src='img/Douglasfir2.png'>",
+                              "<image style='width: 150px' src='img/douglasfir1.png'>",
+                              "<image style='width: 150px' src='img/douglasfir2.png'>",
                               "height: up to 67 meters<br>",
                               "cone/flower size: 4-20cm<br>",
                               "cone/flower description: elongated conesoverlapping scalelike sections, short needles spiraling in all directions from twigs<br>",
