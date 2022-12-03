@@ -4,10 +4,19 @@ var select = function(id){
      $("#" + id).addClass("picked");
      //console.log("hi");
 }
-
-
+$(window).scroll(function() {
+    if ($(this).scrollTop() == 0) {
+         console.log("hi");
+         $("html#this").css("scroll-behavior", "auto");
+         this.scrollTo(0, 0);
+    }
+});
+var smooth = function(){
+     $("html#this").css("scroll-behavior", "smooth");
+}
 //adds select functions to all links
 var selectors = function(){
+     $("html#this").css("scroll-behavior", "smooth");
      $("#CapeWeedL").click(function(){select("CapeWeed")});
      $("#CoastalLiveOakL").click(function(){select("CoastalLiveOak")});
      $("#CoastalRedwoodL").click(function(){select("CoastalRedwood")});
@@ -72,27 +81,27 @@ var dropDownCode = function(){
                {text:"Source 4", func: function(){window.location.href = "https://www.onceuponawatershed.org/coastliveoak#:~:text=The%20Coast%20Live%20Oak%20provides,turkey%20vultures%20and%20many%20more"}}
           ],
           [
-               {text:"Cape Weed", func: function(){document.getElementById("CapeWeed").scrollIntoView();select("CapeWeed");}},
-               {text:"Coastal Live Oak", func: function(){document.getElementById("CoastalLiveOak").scrollIntoView();select("CoastalLiveOak");}},
-               {text:"Coastal Redwood", func: function(){document.getElementById("CoastalRedwood").scrollIntoView();select("CoastalRedwood");}},
-               {text:"Douglas Fir", func: function(){document.getElementById("DouglasFir").scrollIntoView();select("DouglasFir");}},
-               {text:"Pacific Madrone", func: function(){document.getElementById("PacificMadrone").scrollIntoView();select("PacificMadrone");}},
-               {text:"Spotted Beebalm", func: function(){document.getElementById("SpottedBeebalm").scrollIntoView();select("SpottedBeebalm");}},
-               {text:"Woodland Madia", func: function(){document.getElementById("WoodlandMadia").scrollIntoView();select("WoodlandMadia");}},
-               {text:"English Daisy", func: function(){document.getElementById("EnglishDaisy").scrollIntoView();select("EnglishDaisy");}},
-               {text:"Field Marigold", func: function(){document.getElementById("FieldMarigold").scrollIntoView();select("FieldMarigold");}},
+               {text:"Cape Weed", func: function(){smooth();document.getElementById("CapeWeed").scrollIntoView();select("CapeWeed");}},
+               {text:"Coastal Live Oak", func: function(){smooth();document.getElementById("CoastalLiveOak").scrollIntoView();select("CoastalLiveOak");}},
+               {text:"Coastal Redwood", func: function(){smooth();document.getElementById("CoastalRedwood").scrollIntoView();select("CoastalRedwood");}},
+               {text:"Douglas Fir", func: function(){smooth();document.getElementById("DouglasFir").scrollIntoView();select("DouglasFir");}},
+               {text:"Pacific Madrone", func: function(){smooth();document.getElementById("PacificMadrone").scrollIntoView();select("PacificMadrone");}},
+               {text:"Spotted Beebalm", func: function(){smooth();document.getElementById("SpottedBeebalm").scrollIntoView();select("SpottedBeebalm");}},
+               {text:"Woodland Madia", func: function(){smooth();document.getElementById("WoodlandMadia").scrollIntoView();select("WoodlandMadia");}},
+               {text:"English Daisy", func: function(){smooth();document.getElementById("EnglishDaisy").scrollIntoView();select("EnglishDaisy");}},
+               {text:"Field Marigold", func: function(){smooth();document.getElementById("FieldMarigold").scrollIntoView();select("FieldMarigold");}},
           ],
           [
-               {text:"Banana Slug", func: function(){document.getElementById("BananaSlug").scrollIntoView();select("BananaSlug");}},
-               {text:"Black-Tailed Deer", func: function(){document.getElementById("Black-TailedDeer").scrollIntoView();select("Black-TailedDeer");}},
-               {text:"Eastern Gray Squirrel", func: function(){document.getElementById("EasternGraySquirrel").scrollIntoView();select("EasternGraySquirrel");}},
-               {text:"Wild Turkey", func: function(){document.getElementById("WildTurkey").scrollIntoView();select("WildTurkey");}},
+               {text:"Banana Slug", func: function(){smooth();document.getElementById("BananaSlug").scrollIntoView();select("BananaSlug");}},
+               {text:"Black-Tailed Deer", func: function(){smooth();document.getElementById("Black-TailedDeer").scrollIntoView();select("Black-TailedDeer");}},
+               {text:"Eastern Gray Squirrel", func: function(){smooth();document.getElementById("EasternGraySquirrel").scrollIntoView();select("EasternGraySquirrel");}},
+               {text:"Wild Turkey", func: function(){smooth();document.getElementById("WildTurkey").scrollIntoView();select("WildTurkey");}},
           ],
           [
-               {text:"Monarch Butterfly", func: function(){document.getElementById("MonarchButterfly").scrollIntoView();select("MonarchButterfly");}},
-               {text:"Ohlone Tiger Beetle", func: function(){document.getElementById("OhloneTigerBeetle").scrollIntoView();select("OhloneTigerBeetle");}},
-               {text:"Digger Wasps", func: function(){document.getElementById("DiggerWasps").scrollIntoView();select("DiggerWasps");}},
-               {text:"Leaf Footed Bugs", func: function(){document.getElementById("LeafFootedBugs").scrollIntoView();select("LeafFootedBugs");}}
+               {text:"Monarch Butterfly", func: function(){smooth();document.getElementById("MonarchButterfly").scrollIntoView();select("MonarchButterfly");}},
+               {text:"Ohlone Tiger Beetle", func: function(){smooth();document.getElementById("OhloneTigerBeetle").scrollIntoView();select("OhloneTigerBeetle");}},
+               {text:"Digger Wasps", func: function(){smooth();document.getElementById("DiggerWasps").scrollIntoView();select("DiggerWasps");}},
+               {text:"Leaf Footed Bugs", func: function(){smooth();document.getElementById("LeafFootedBugs").scrollIntoView();select("LeafFootedBugs");}}
           ],
           [
 
