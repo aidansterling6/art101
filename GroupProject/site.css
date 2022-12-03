@@ -52,11 +52,11 @@ body {
      background-color: rgba(0, 0, 0, .5);
      border: solid 2px #000000;
 }
-.transHover {
+.transHover:not(.transPressed) {
      background-color: rgba(0, 0, 0, .3);
      border: solid 2px #000000;
 }
-.transNotPressed {
+.transNotPressed:not(.transHover, .transPressed) {
      background-color: rgba(0, 0, 0, .02);
      border: solid 2px #555555;
 }
@@ -180,8 +180,15 @@ body {
      border-radius: 5px;
      z-index: 1;
 }
-.dropdownButton {
+.dropdownButton:not(.dropbuttonhover) {
     font-family: "Monaco", monospace;
     background-color: #A4A55B;
-
+}
+.dropbuttonhover {
+     font-family: "Monaco", monospace;
+     background-color: #898a4c;
+}
+.dropbuttonclick {
+     font-family: "Monaco", monospace;
+     background-color: #6a6b3b;
 }

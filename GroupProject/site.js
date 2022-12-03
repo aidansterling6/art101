@@ -2,7 +2,7 @@
 var select = function(id){
      $(".link").removeClass("picked");
      $("#" + id).addClass("picked");
-     console.log("hi");
+     //console.log("hi");
 }
 
 
@@ -47,6 +47,10 @@ var dropDownCode = function(){
                {text:"Coastal Redwood", func: function(){document.getElementById("CoastalRedwood").scrollIntoView();select("CoastalRedwood");}},
                {text:"Douglas Fir", func: function(){document.getElementById("DouglasFir").scrollIntoView();select("DouglasFir");}},
                {text:"Pacific Madrone", func: function(){document.getElementById("PacificMadrone").scrollIntoView();select("PacificMadrone");}},
+               {text:"Spotted Beebalm", func: function(){document.getElementById("SpottedBeebalm").scrollIntoView();select("SpottedBeebalm");}},
+               {text:"Woodland Madia", func: function(){document.getElementById("WoodlandMadia").scrollIntoView();select("WoodlandMadia");}},
+               {text:"English Daisy", func: function(){document.getElementById("EnglishDaisy").scrollIntoView();select("EnglishDaisy");}},
+               {text:"Field Marigold", func: function(){document.getElementById("FieldMarigold").scrollIntoView();select("FieldMarigold");}},
           ],
           [
                {text:"Banana Slug", func: function(){document.getElementById("BananaSlug").scrollIntoView();select("BananaSlug");}},
@@ -56,7 +60,9 @@ var dropDownCode = function(){
           ],
           [
                {text:"Monarch Butterfly", func: function(){document.getElementById("MonarchButterfly").scrollIntoView();select("MonarchButterfly");}},
-               {text:"Ohlone Tiger Beetle", func: function(){document.getElementById("OhloneTigerBeetle").scrollIntoView();select("OhloneTigerBeetle");}}
+               {text:"Ohlone Tiger Beetle", func: function(){document.getElementById("OhloneTigerBeetle").scrollIntoView();select("OhloneTigerBeetle");}},
+               {text:"Digger Wasps", func: function(){document.getElementById("DiggerWasps").scrollIntoView();select("DiggerWasps");}},
+               {text:"Leaf Footed Bugs", func: function(){document.getElementById("LeafFootedBugs").scrollIntoView();select("LeafFootedBugs");}}
           ],
           [
 
@@ -87,6 +93,15 @@ var dropDownCode = function(){
           temp.append(bottoms[i]);
           for(var o = 0; o < Buttons[i].length;o++){
                Buttons[i][o].button = $("<button class='dropdownButton'>" + Buttons[i][o].text + "</button>");
+               Buttons[i][o].button.mouseenter(function(){
+                    $(this).addClass("dropbuttonhover");
+               });
+               Buttons[i][o].button.mouseleave(function(){
+                    $(this).removeClass("dropbuttonhover");
+               });
+               Buttons[i][o].button.click(function(){
+                    $(this).addClass("dropbuttonclick");
+               });
                Buttons[i][o].button.css("width", (Widths[i] + WShift) + "px");
                Buttons[i][o].button.css("height", buttonHeight + "px");
                Buttons[i][o].button.css("position", "absolute");
@@ -98,6 +113,12 @@ var dropDownCode = function(){
                bottoms[i].css("height", ((o * buttonHeight) + YOffsets[i]) + "px");
           }
           tops.push($("<div class=dropdown></div>"));
+          tops[i].mouseenter(function(){
+               $(this).addClass("dropbuttonhover");
+          });
+          tops[i].mouseleave(function(){
+               $(this).removeClass("dropbuttonhover");
+          });
           // background-color: #AAAAAA;
           // border: solid 0px black;
           tops[i].html(dropIds[i]);
@@ -151,7 +172,7 @@ var dropDownCode = function(){
                //   update(index);
                // }
           }
-          sy = 1;
+          sy = 2;
           id = setInterval(expand, 1);
           var activateDrop = function(){
                isDowns[index] = true;
@@ -174,6 +195,12 @@ var dropDownCode = function(){
           Index++;
      }
 }
+
+var startmaptext = "Hello and welcome to our website! This website was mad as a class project " +
+"in order to show people some of the wildlife on campus at ucsc. The buttons to the left tell you about different"+
+" Vegetation Communities on the campus. The dropdown meues above have links to our sources and to some of our "+
+"personal websites, as well as lists to all of the animals, plants, insects, and fungi that we have included. ";
+
 //function for the ucsc map and buttons
 var mapCode = function(){
      //text that apears when you click on the buttons on the map
@@ -203,13 +230,13 @@ var mapCode = function(){
                "Coyote Brush Scrub Coyote brush (Baccharis pilularis var. consanguinea) is dominant or co-dominant in coyote brush scrub, sometimes growing in the company of other scrub-affiliated shrubs like blue blossom (Ceanothus thyrsiflorus), sticky monkeyflower (Mimulus aurantiacus), blackberry (Rubus ursinus), and coffeeberry (Frangula californica). Often, coyote brush scrub is a transitional community between grassland and woodland--when left unmanaged (e.g. fire suppression, no grazing), coyote brush can establish in grassland and shelter tree seedlings as they mature. On campus, the extent of coyote brush scrub may actually be larger than mapped, but CBS is not a persistent community and current management practices are keeping coyote brush populations down."
           ],
           ib4:[
-               "Areas developed and cultivated by humans exist primarily on the main campus where there are buildings, plantings around buildings, parking lots, and gardens. In these areas, the natural landscape is “disturbed” by human activity and thus altered in some way. The Arboretum, the CASFS Farm, Chadwick Garden, and the various college gardens are all examples of landscaped areas. Developed areas essentially include any piece of land that has been built on or paved over. These places often host invasive plants, as many of these species prefer and thrive in environments where the soil is disturbed. While invasive plants thrive in degraded habitats, native plants do not do so well and are at a disadvantage. This allows weedy species to outcompete native plants and dominate disturbed areas."
+               "Areas developed and cultivated by humans exist primarily on the main campus where there are buildings, plantings around buildings, parking lots, and gardens. In these areas, the natural landscape is \"disturbed\" by human activity and thus altered in some way. The Arboretum, the CASFS Farm, Chadwick Garden, and the various college gardens are all examples of landscaped areas. Developed areas essentially include any piece of land that has been built on or paved over. These places", "often host invasive plants, as many of these species prefer and thrive in environments where the soil is disturbed. While invasive plants thrive in degraded habitats, native plants do not do so well and are at a disadvantage. This allows weedy species to outcompete native plants and dominate disturbed areas."
           ],
           ib5:[
                "The Dwarf Redwood forest in Santa Cruz is considered to be a unique feature of the area, with no redwoods over 30ft tall, and all are a much lighter green color than normal. The other features of these trees suggest they are of mature age, but scientists disagree over the cause of their short stature. Some scientists believe these are just young trees, some argue that they are genetically unique, and others theorize their height is caused by poor soil. However in 1970,  soil scientist Dr. Hans Jenny proved that these were not young trees, and discovered one that was over 300 years old although only being 6ft tall."
           ],
           ib6:[
-               "All those who visit UC Santa Cruz are familiar with this plant community, as coast redwoods (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because redwoods exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the redwoods create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), redwood violet (Viola sempervirens), and redwood sorrel (Oxalis oregana). Some tree species, like Douglas-fir (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the redwoods. Additionally, there are some stands of redwoods that are categorized as “dwarf redwoods” on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height. Stands of these smaller trees, which grow more densely than the other redwoods on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned."
+               "All those who visit UC Santa Cruz are familiar with this plant community, as coast redwoods (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because redwoods exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the redwoods create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), redwood violet (Viola sempervirens), and redwood sorrel (Oxalis oregana). Some tree species, like Douglas-fir (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the redwoods. Additionally, there are some stands of redwoods that are categorized as \"dwarf redwoods\" on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height.", "Stands of these smaller trees, which grow more densely than the other redwoods on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned."
           ],
           ib7:[
                "Grassland dominates most of the lower half of campus and pockets of Upper Campus. Large meadows, like the East Meadow, the Great Meadow, and Mima Meadow, are composed mostly of annual plants, especially grasses. Most of the grasses and herbaceous plants in these meadows are non-native and/or invasive, like ripgut brome (Bromus diandrus), slender wild oat (Avena barbata), rattlesnake grass (Briza maxima), wild radish (Raphanus spp.), stork's bill (Erodium botrys), and rough cat's ear (Hypochaeris radicata), which can have detrimental impacts on the native ecosystem. However, some native species have managed to persist. Sky lupine (Lupinus nanus) and California poppies (Eschscholzia californica) still bloom in abundance in the spring, painting the meadows with patches of blue and orange. Other common native grassland species are sun cups (Taraxia ovata), Fremont's star lily (Toxicoscordion fremontii), California buttercup (Ranunculus californicus), blue-eyed grass (Sisyrinchium bellum), coyote brush (Baccharis pilularis var. consanguinea), purple needlegrass (Stipa pulchra), and California oatgrass (Danthonia californica). While the large lower campus meadows have spectacular views and a host of plant life, the meadows of Upper Campus are truly the jackpot for botanizing. These meadows, like the Marshall Fields complex, are a specific type of grassland called coastal prairie that sit on ancient marine terraces. This plant community is especially diverse. In addition to the native and non-native plants found on lower campus, this community also includes colorful species like harlequin lotus (Hosackia gracilis), yellow owl's clover (Triphysaria versicolor), golden brodiaea (Triteleia ixioides), mariposa lilies (Calochortus spp.), and brodieas (Brodiaea spp.). Many of these species are rare or restricted in range, such as Point Reyes horkelia (Horkelia marinensis), and large flowered mariposa (Calochortus uniflorus)"
@@ -232,7 +259,7 @@ var mapCode = function(){
                "This is a hot, dry plant community that is characterized mostly by shrubs. Here in Santa Cruz, the influence of summer fog and presence of sandy soil makes this kind of chaparral distinct from the more inland type. This is referred to as northern maritime chaparral, which is a relatively rare plant community found in small patches along the coast. Although the fog provides some respite for the plants in the summer, maritime chaparral is still a harsh environment that plants must adapt to in specialized ways. Small, thick, stiff leaves help plants hold and efficiently use the small amounts of water they receive. Plants here are also fire-adapted, as fire is integral to the ecology of this community. Some species are able to resprout from their bases after fire while others have seeds that germinate in response to the heat or smoke of fire. Examples of chaparral plants include manzanitas (Arctostaphylos spp.), ceanothus (Ceanothus spp.), coffeeberry (Frangula californica), huckleberry (Vaccinium ovatum), chaparral pea (Pickeringia montana), and sticky monkeyflower (Mimulus aurantiacus). Occasionally, you will find a knobcone pine (Pinus attenuata) or a small oak, too. Two good places to visit campus chaparral are on Chinquapin Rd. northwest of Red Hill Rd. and on Fuel Break Rd. between Red Hill and West roads"
           ],
           ib11:[
-               "All those who visit UC Santa Cruz are familiar with this plant community, as coast redwoods (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because redwoods exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the redwoods create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), redwood violet (Viola sempervirens), and redwood sorrel (Oxalis oregana). Some tree species, like Douglas-fir (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the redwoods. Additionally, there are some stands of redwoods that are categorized as “dwarf redwoods” on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height. Stands of these smaller trees, which grow more densely than the other redwoods on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned"
+               "All those who visit UC Santa Cruz are familiar with this plant community, as coast redwoods (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because redwoods exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the redwoods create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), redwood violet (Viola sempervirens), and redwood sorrel (Oxalis oregana). Some tree species, like Douglas-fir (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the redwoods. Additionally, there are some stands of redwoods that are categorized as \"dwarf redwoods\" on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height. Stands of these smaller trees, which grow more densely than the other redwoods on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned"
           ],
           ib12:[
                "Riparian zones on campus include those with standing water, streams, seeps, and springs. Some of this water is present year round and some is seasonal, greatly influencing what grows when and where. Riparian plant species require ample moisture, growing in or near the three main riparian corridors on campus: Cave Gulch, Moore Creek, and Jordan Gulch. The most common trees in this plant community are big leaf maple (Acer macrophyllum), willows (Salix spp.), and buckeye (Aesculus californica). Riparian zones on campus also support a number of fern species, like giant chain fern (Woodwardia fimbriata) and lady fern (Athyrium filix femina var. cyclosorum), as well as the grass-like sedges (Carex spp.) and rushes (Juncus spp.). Fewer herbaceous plants and shrubs dwell in these chronically wet environments, although elk clover (Aralia californica), western azalea (Rhododendron occidentale), and sneezeweed (Helenium puberulum) do thrive in these conditions"
@@ -265,7 +292,15 @@ var mapCode = function(){
 
           tempButton = $("#ib" + i);
           tempButton.addClass("transNotPressed");
-          tempButton.hover(function(){
+          tempButton.mouseenter(function(){
+               $(this).addClass("transHover");
+               $(this).removeClass("transNotPressed");
+          });
+          tempButton.mouseleave(function(){
+               $(this).removeClass("transHover");
+               $(this).addClass("transNotPressed");
+          });
+          tempButton.click(function(){
                //console.log($(this).siblings("#ucscmapinfo"));
                //console.log($(this).attr('id'));
 
@@ -282,13 +317,12 @@ var mapCode = function(){
                MapInfo.html(temptxt);
           });
      }
-     $("#ib1").removeClass("transNotPressed");
-     $("#ib1").addClass("transPressed");
-     var temptxt = "";
-     for(var o = 0; o < mapTexts["ib1"].length;o++){
-           temptxt += mapTexts["ib1"][o];
-     }
-     MapInfo.html(temptxt);
+     //$("#ib1").removeClass("transNotPressed");
+     //$("#ib1").addClass("transPressed");
+     //for(var o = 0; o < mapTexts["ib1"].length;o++){
+          // temptxt += mapTexts["ib1"][o];
+     //}
+     MapInfo.html(startmaptext);
 }
 
 //code for links (the animals and plants linked together at the bottom)
@@ -492,29 +526,6 @@ var linkCode = function(){
               ]
         },
         {
-              id: "CapeWeed",
-              title: "Cape Weed",
-              tabs:[
-                   {
-                        title: "Information",
-                        info:[
-                             "height:15cm - 30cm<br>",
-                             "blooms: Summer and Fall",
-                             "cone/flower size: 5 cm across<br>",
-                             "cone/flower description:Pale yellow daisy-like flowers with a darker ring and a black or yellow center, are borne singly on roughly hairy stalks.<br>",
-                             "facts: Thrives in full sun and requires a low to moderate amount of water. Cape weed has become an invasive species in California; the plant originates from South Africa. <br>",
-                        ]
-                   },
-                   {
-                        title: "Relationships",
-                        info:[
-                             "The Cape Weed flower attracts bees and butterflies.<br>", //add link for butterfly or bee
-                             "Can aggressively push native herbs out of their natural locations.<br>", //add link for an herb in the area?
-                        ]
-                   }
-              ]
-        },
-        {
               id: "MonarchButterfly",
               title: "Monarch Butterfly",
               tabs:[
@@ -559,7 +570,163 @@ var linkCode = function(){
                         ]
                    }
               ]
+        },
+        {
+              id: "DiggerWasps",
+              title: "Digger Wasps",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 150px' src='img/diggerwasp1.jpg'>",
+                             "<image style='width: 150px' src='img/diggerwasp2.jpg'>",
+                             "description: digger wasps are big, and hairy. They typically have dark wings and bright colors on their abdomen.<br>",
+                             "facts: digger wasps are considered solitary or hunter wasps. The female wasps are known to make nests for their babies.<br>",
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Since digger wasps make their nests on the ground they typically eat larvae and grubs so they can stay near their eggs. In Santa Cruz you can spot them collecting pollen from spotted beebalm flowers.  <br>"
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "LeafFootedBugs",
+              title: "Leaf-Footed Bugs",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 150px' src='img/leaffootedbug1.jpg'>",
+                             "<image style='width: 150px' src='img/leaffootedbug2.jfif'>",
+                             "description: they are very large bugs that can range from 7-45mm. Usually a muddy brown color.<br>",
+                             "facts:they have sharp mouths that can pierce through the fruits, plants and seeds that they eat.<br>",
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Adult leaf footed bugs are attracted to sunflowers, and find them perfect for laying their eggs in.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "SpottedBeebalm",
+              title: "Spotted Beebalm",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 130px' src='img/spottedbeebalm1.jpg'>",
+                             "<image style='width: 150px' src='img/spottedbeebalm2.jpg'>",
+                             "description: these plants can range from 6in to 3ft tall. They are a tube shaped flower that has pink petals and green leaves that appear to be poking out all around.<br>",
+                             "facts: spotted beebalm is often used as a home remedy to treat the flu or cold like symptoms.<br>",
+		                   "blooms: in the summer for about 1-2 months.<br>",
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Pollinated by digger bees in a symbiotic relationship. Hummingbirds and butterflies also enjoy spotted beebalm.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "CapeWeed",
+              title: "Cape Weed",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 130px' src='img/capeweed1.jfif'>",
+                             "<image style='width: 150px' src='img/capeweed2.jfif'>",
+                             "description: This annual or perennial herb has radiate flowering heads with long, yellow ray flowers and yellow disk flowers. The deeply lobed leaves grow in basal rosettes. The leaf surfaces are slightly wooly and the undersides are white-woolly.<br>",
+                             "facts: Prostrate cape weed grows in large patches in disturbed areas. It is not too common on campus, but can be seen growing in a patch between Family Student Housing and Porter Meadow. (UCSC plant guide, Bell).<br>",
+		                   "Blooms: april-july<br>"
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Cape weeds add to biodiversity and attract bees and butterflies. They can also be an indicator of acid soil or salinity in the soil which is not good, solving that issue will make them less invasive and make the conditions better for other plants.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "WoodlandMadia",
+              title: "Woodland Madia",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 130px' src='img/woodlandmadia1.jpg'>",
+                             "<image style='width: 150px' src='img/woodlandmadia2.jpg'>",
+                             "description: this perennial herb has radiate heads with yellow 3-lobed petal-like ray flowers. Each flowering head is subtended by a spherical involucre with glandular phyllaries. The linear to oblanceolate leaves are bristly-hairy to soft-hairy with entire margins. Generally, the lower leaves are opposite and the smaller upper leaves are alternate. The stems have golden to dark brown glands.<br>",
+                             "facts: Woodland madia prefers moist forested areas, making Santa Cruz it's perfect home.<br>",
+		                   "Blooms: april-july<br>"
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Although often considered to be just a decorative plant, they can be helpful to attract pollinators such as bees and butterflies, or other pollinators to your garden.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "EnglishDaisy",
+              title: "English Daisy",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 130px' src='img/englishdaisy1.jpg'>",
+                             "<image style='width: 150px' src='img/englishdaisy2.jfif'>",
+                             "description: the radiate heads of this perennial herb are composed of many narrow, white ray flowers around bright yellow disk flowers. The basal leaves are oblanceolate to obovate and taper to the base, sometimes creating a spoon shape. The leaf margins are serrate, crenate, or entire.<br>",
+                             "facts: the english daisy prefers damp, grassy areas and can be found on campus usually around human developments, such as the McHenry Library lawn.<br>",
+		                   "Blooms: april-aug<br>"
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Slugs and snails are known eat english daisys. Earwigs like to eat just the pedals, while slugs and snails will eat the stem and the leaves as well. English daisies are also known to be a good deer resistant to keep them out of your backyard.<br>",
+                        ]
+                   }
+              ]
+        },
+        {
+              id: "FieldMarigold",
+              title: "Field Marigold",
+              tabs:[
+                   {
+                        title: "Information",
+                        info:[
+                             "<image style='width: 130px' src='img/fieldmarigold1.jfif'>",
+                             "<image style='width: 150px' src='img/fieldmarigold2.jfif'>",
+                             "description: this naturalized annual herb has yellow-orange ray flowers and small, similarly colored disk flowers. At maturity, the flower heads begin to nod. The leaves are lanceolate and have slightly wavy margins. Both the leaves and narrow stem are finely hairy and glandular.<br>",
+                             "Facts: this plant is an escaped cultivar that now grows in areas disturbed by humans, and is known to be fairly common in Santa Cruz and surrounding areas.<br>",
+		                   "blooms: march-april<br>"
+                        ]
+                   },
+                   {
+                        title: "Relationships",
+                        info:[
+                             "Field marigolds are enjoyed by many insects such as grasshoppers. Slugs may also eat marigolds. Birds typically don't eat these flowers but often kill them while searching for foods. Rabbits may also be attracted to marigolds and eat them as well.<br>",
+                        ]
+                   }
+              ]
         }
+
+
+
+
 
      ];
      var links = [];
@@ -570,7 +737,7 @@ var linkCode = function(){
           links[i].id = links[i].body.attr('id');
           links[i].body.css("left", (parseInt(links[i].body.css("left")) * 400 + 50) + "px");
           links[i].body.css("top", (parseInt(links[i].body.css("top")) * 550 + 780) + "px");
-          console.log((links[i].body.css("left")));
+          //console.log((links[i].body.css("left")));
           links[i].data = {title:"none", tabs:[{title:"none"}]};
           for(var a = 0; a < animal_data.length; a++){
                if(animal_data[a].id == links[i].id){
@@ -636,6 +803,7 @@ var linkCode = function(){
           //console.log(links[i].data.tabs[0]);
           links[i].t[0].toggleClass("selected");
           var temptxt = "";
+          //console.log(links[i].data);
           for(var y = 0; y < links[i].data.tabs[0].info.length;y++){
               temptxt += links[i].data.tabs[0].info[y];
           }
