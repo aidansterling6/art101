@@ -22,6 +22,34 @@ var selectors = function(){
      $("#MonarchButterflyL").click(function(){select("MonarchButterfly")});
      $("#OhloneTigerBeetleL").click(function(){select("OhloneTigerBeetle")});
 }
+var replaces = [
+     {name:"EasternGraySquirrel",in:["{Squirrels}"], out:"<a href='#EasternGraySquirrel' id='EasternGraySquirrelL'>####</a>"},
+     {name:"DouglasFir",in:["{Douglas Fir}"], out:"<a href='#DouglasFir' id='DouglasFirL'>####</a>"},
+     {name:"CoastalLiveOak",in:["{Oak Trees}", "{Oak Tree}"], out:"<a href='#CoastalLiveOak' id='CoastalLiveOakL'>####</a>"},
+     {name:"CoastalRedwood",in:["{Coastal Redwoods}", "{Coastal Redwood}", "{Redwoods}", "{Redwood}"], out:"<a href='#CoastalRedwood' id='CoastalRedwoodL'>####</a>"},
+     {name:"WildTurkey",in:["{Wild Turkey}", "{Turkey}"], out:"<a href='#WildTurkey' id='WildTurkeyL'>####</a>"},
+     {name:"BananaSlug",in:["{Banana Slugs}", "{Banana Slug}", "{Slugs}", "{Slug}"], out:"<a href='#BananaSlug' id='BananaSlugL'>####</a>"}
+];
+var Replace = function(text, ntext){
+     var out = text;
+     for(var i = 0; i < replaces.length; i++){
+          if(replaces[i].name !== ntext){
+               for(var o = 0; o < replaces[i].in.length; o++){
+                    for(var r = 0; r < 30; r++){
+                         text = text.replace(replaces[i].in[o], replaces[i].out);
+                         text = text.replace("####", replaces[i].in[o].replace("{", "").replace("}", ""));
+                    }
+               }
+          } else{
+               for(var o = 0; o < replaces[i].in.length; o++){
+                    for(var r = 0; r < 30; r++){
+                         text = text.replace(replaces[i].in[o], replaces[i].in[o].replace("{", "").replace("}", ""));
+                    }
+               }
+          }
+     }
+     return text;
+}
 //code for dropdown menus
 var dropDownCode = function(){
      //ID's of all dropdown menus
@@ -233,10 +261,10 @@ var mapCode = function(){
                "Areas developed and cultivated by humans exist primarily on the main campus where there are buildings, plantings around buildings, parking lots, and gardens. In these areas, the natural landscape is \"disturbed\" by human activity and thus altered in some way. The Arboretum, the CASFS Farm, Chadwick Garden, and the various college gardens are all examples of landscaped areas. Developed areas essentially include any piece of land that has been built on or paved over. These places", "often host invasive plants, as many of these species prefer and thrive in environments where the soil is disturbed. While invasive plants thrive in degraded habitats, native plants do not do so well and are at a disadvantage. This allows weedy species to outcompete native plants and dominate disturbed areas."
           ],
           ib5:[
-               "The Dwarf Redwood forest in Santa Cruz is considered to be a unique feature of the area, with no redwoods over 30ft tall, and all are a much lighter green color than normal. The other features of these trees suggest they are of mature age, but scientists disagree over the cause of their short stature. Some scientists believe these are just young trees, some argue that they are genetically unique, and others theorize their height is caused by poor soil. However in 1970,  soil scientist Dr. Hans Jenny proved that these were not young trees, and discovered one that was over 300 years old although only being 6ft tall."
+               "The Dwarf Redwood forest in Santa Cruz is considered to be a unique feature of the area, with no {Redwoods} over 30ft tall, and all are a much lighter green color than normal. The other features of these trees suggest they are of mature age, but scientists disagree over the cause of their short stature. Some scientists believe these are just young trees, some argue that they are genetically unique, and others theorize their height is caused by poor soil. However in 1970,  soil scientist Dr. Hans Jenny proved that these were not young trees, and discovered one that was over 300 years old although only being 6ft tall."
           ],
           ib6:[
-               "All those who visit UC Santa Cruz are familiar with this plant community, as coast redwoods (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because redwoods exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the redwoods create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), redwood violet (Viola sempervirens), and redwood sorrel (Oxalis oregana). Some tree species, like Douglas-fir (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the redwoods. Additionally, there are some stands of redwoods that are categorized as \"dwarf redwoods\" on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height.", "Stands of these smaller trees, which grow more densely than the other redwoods on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned."
+               "All those who visit UC Santa Cruz are familiar with this plant community, as {Coastal Redwood} (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because {Redwood} exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the {Redwood} create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), Redwood violet (Viola sempervirens), and Redwood sorrel (Oxalis oregana). Some tree species, like {Douglas Fir} (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the {Redwood}. Additionally, there are some stands of {Redwood} that are categorized as \"dwarf redwoods\" on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height.", "Stands of these smaller trees, which grow more densely than the other {Redwood} on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned."
           ],
           ib7:[
                "Grassland dominates most of the lower half of campus and pockets of Upper Campus. Large meadows, like the East Meadow, the Great Meadow, and Mima Meadow, are composed mostly of annual plants, especially grasses. Most of the grasses and herbaceous plants in these meadows are non-native and/or invasive, like ripgut brome (Bromus diandrus), slender wild oat (Avena barbata), rattlesnake grass (Briza maxima), wild radish (Raphanus spp.), stork's bill (Erodium botrys), and rough cat's ear (Hypochaeris radicata), which can have detrimental impacts on the native ecosystem. However, some native species have managed to persist. Sky lupine (Lupinus nanus) and California poppies (Eschscholzia californica) still bloom in abundance in the spring, painting the meadows with patches of blue and orange. Other common native grassland species are sun cups (Taraxia ovata), Fremont's star lily (Toxicoscordion fremontii), California buttercup (Ranunculus californicus), blue-eyed grass (Sisyrinchium bellum), coyote brush (Baccharis pilularis var. consanguinea), purple needlegrass (Stipa pulchra), and California oatgrass (Danthonia californica). While the large lower campus meadows have spectacular views and a host of plant life, the meadows of Upper Campus are truly the jackpot for botanizing. These meadows, like the Marshall Fields complex, are a specific type of grassland called coastal prairie that sit on ancient marine terraces. This plant community is especially diverse. In addition to the native and non-native plants found on lower campus, this community also includes colorful species like harlequin lotus (Hosackia gracilis), yellow owl's clover (Triphysaria versicolor), golden brodiaea (Triteleia ixioides), mariposa lilies (Calochortus spp.), and brodieas (Brodiaea spp.). Many of these species are rare or restricted in range, such as Point Reyes horkelia (Horkelia marinensis), and large flowered mariposa (Calochortus uniflorus)"
@@ -248,18 +276,18 @@ var mapCode = function(){
                "This diverse vegetation community is found on the main campus in ",
                "small patches, but is most common in Upper Campus and a section ",
                "of campus west of Empire Grade. Much more diverse and variable ",
-               "than redwood forest, mixed evergreen forest is host to an ",
+               "than {Redwood} forest, mixed evergreen forest is host to an ",
                "RF DRFMEDR-M-C9 abundance of ferns, trees, shrubs, and herbaceous ",
                "plant species.Here, broadleaf evergreen trees, like members of the oak family ",
-               "(Quercus spp. Notholithocarpus densiflorus, Chrysolepis chrysophylla var. minor), madrone (Arbutus menziesii) can grow in the company of conifers (redwood, Doug-fir, pine). ",
+               "(Quercus spp. Notholithocarpus densiflorus, Chrysolepis chrysophylla var. minor), madrone (Arbutus menziesii) can grow in the company of conifers ({Coastal Redwood}, {Douglas Fir}, pine). ",
                 "Shrubs like California hazelnut (Corylus cornuta subsp. californica), California blackberry (Rubus ursinus), and poison oak (Toxicodendron diversilobum) are common in this varied ",
-                "landscape. Flowers of striking colors and unique features also bloom here, such as hound's tongue (Cynoglossum grande), white globe lily (Calochortus albus), Douglas iris (Iris douglasiana), and California hedgenettle (Stachys bullata). "
+                "landscape. Flowers of striking colors and unique features also bloom here, such as hound's tongue (Cynoglossum grande), white globe lily (Calochortus albus), Douglas iris (Iris Douglasiana), and California hedgenettle (Stachys bullata). "
           ],
           ib10:[
                "This is a hot, dry plant community that is characterized mostly by shrubs. Here in Santa Cruz, the influence of summer fog and presence of sandy soil makes this kind of chaparral distinct from the more inland type. This is referred to as northern maritime chaparral, which is a relatively rare plant community found in small patches along the coast. Although the fog provides some respite for the plants in the summer, maritime chaparral is still a harsh environment that plants must adapt to in specialized ways. Small, thick, stiff leaves help plants hold and efficiently use the small amounts of water they receive. Plants here are also fire-adapted, as fire is integral to the ecology of this community. Some species are able to resprout from their bases after fire while others have seeds that germinate in response to the heat or smoke of fire. Examples of chaparral plants include manzanitas (Arctostaphylos spp.), ceanothus (Ceanothus spp.), coffeeberry (Frangula californica), huckleberry (Vaccinium ovatum), chaparral pea (Pickeringia montana), and sticky monkeyflower (Mimulus aurantiacus). Occasionally, you will find a knobcone pine (Pinus attenuata) or a small oak, too. Two good places to visit campus chaparral are on Chinquapin Rd. northwest of Red Hill Rd. and on Fuel Break Rd. between Red Hill and West roads"
           ],
           ib11:[
-               "All those who visit UC Santa Cruz are familiar with this plant community, as coast redwoods (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because redwoods exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the redwoods create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), redwood violet (Viola sempervirens), and redwood sorrel (Oxalis oregana). Some tree species, like Douglas-fir (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the redwoods. Additionally, there are some stands of redwoods that are categorized as \"dwarf redwoods\" on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height. Stands of these smaller trees, which grow more densely than the other redwoods on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned"
+               "All those who visit UC Santa Cruz are familiar with this plant community, as {Coastal Redwoods} (Sequoia sempervirens) are a dominant feature of the central and upper regions of campus. These towering, long-lived conifers can grow up to 120 m tall and 2200 years old in some parts of California, but only reach about 60 m and 100 years old on campus. They are restricted to the central and northern coast of California and a small part of the southern coast of Oregon. This is because {Redwoods} exist where coastal fog exists, as it provides moisture for the trees in the otherwise too-dry summer months. The plant species that dwell in the forest understory need this moisture, too. However, the dark canopy and deep duff that the {Redwood} create limits what plants are able to grow in their company. Associated species you can observe growing on the forest floor are sword fern (Polystichum munitum), milkmaids (Cardamine californica), fetid adder's tongue (Scoliopus bigelovii), wake-robin (Trillium ovatum), Redwood violet (Viola sempervirens), and Redwood sorrel (Oxalis oregana). Some tree species, like {Douglas Fir} (Pseudotsuga menziesii) and tanoak (Notholithocarpus densiflorus) also dwell in the midst of the {Redwood}. Additionally, there are some stands of {Redwood} that are categorized as \"dwarf redwoods\" on the Vegetation Communities Map. These are not true dwarf forms, but are reduced in stature in terms of circumference and height. Stands of these smaller trees, which grow more densely than the other {Redwood} on campus, are found on the East Slope of the Campus Natural Reserve, as well as around the Trailer Park and North Remote parking lot. These trees are perhaps smaller because they grow on poor, sandy soils and/or in areas that were historically burned"
           ],
           ib12:[
                "Riparian zones on campus include those with standing water, streams, seeps, and springs. Some of this water is present year round and some is seasonal, greatly influencing what grows when and where. Riparian plant species require ample moisture, growing in or near the three main riparian corridors on campus: Cave Gulch, Moore Creek, and Jordan Gulch. The most common trees in this plant community are big leaf maple (Acer macrophyllum), willows (Salix spp.), and buckeye (Aesculus californica). Riparian zones on campus also support a number of fern species, like giant chain fern (Woodwardia fimbriata) and lady fern (Athyrium filix femina var. cyclosorum), as well as the grass-like sedges (Carex spp.) and rushes (Juncus spp.). Fewer herbaceous plants and shrubs dwell in these chronically wet environments, although elk clover (Aralia californica), western azalea (Rhododendron occidentale), and sneezeweed (Helenium puberulum) do thrive in these conditions"
@@ -314,7 +342,8 @@ var mapCode = function(){
                for(var o = 0; o < mapTexts[thisID].length;o++){
                      temptxt += mapTexts[thisID][o];
                }
-               MapInfo.html(temptxt);
+               MapInfo.html(Replace(temptxt, ""));
+               selectors();
           });
      }
      //$("#ib1").removeClass("transNotPressed");
@@ -355,8 +384,8 @@ var linkCode = function(){
                     {
                          title: "Relationships",
                          info:[
-                              "Coastal Redwoods are related to coast redwood, giant sequoia, dawn redwood and alerce.<br>",
-                              "Mycorrhizal fungi form a mutualistic relationship with the redwoods and other plants in the forest. The fungi will combine their mycelium with the tree's roots, this makes it easier for the trees to get nutrients and moisture, while the fungi gains sugars from the trees.<br>",
+                              "{Coastal Redwoods} are related to giant sequoia, dawn Redwood and alerce.<br>",
+                              "Mycorrhizal fungi form a mutualistic relationship with the {Redwood} and other plants in the forest. The fungi will combine their mycelium with the tree's roots, this makes it easier for the trees to get nutrients and moisture, while the fungi gains sugars from the trees.<br>",
                               "Home of northern spotted owl"
                          ]
                     },
@@ -369,8 +398,8 @@ var linkCode = function(){
                     {
                          title: "Information",
                          info:[
-                              "<image style='width: 150px' src='img/douglasfir1.png'>",
-                              "<image style='width: 150px' src='img/douglasfir2.png'>",
+                              "<image style='width: 150px' src='img/Douglasfir1.png'>",
+                              "<image style='width: 150px' src='img/Douglasfir2.png'>",
                               "height: up to 67 meters<br>",
                               "cone/flower size: 4-20cm<br>",
                               "cone/flower description: elongated conesoverlapping scalelike sections, short needles spiraling in all directions from twigs<br>",
@@ -381,8 +410,8 @@ var linkCode = function(){
                     {
                          title: "Relationships",
                          info:[
-                              "<a href='#EasternGraySquirrel' id='EasternGraySquirrelL'>Squirrels</a>, rabbits, and other small animals use seeds; deer, elk, and antelope eat twigs and foliage.<br>",
-                              "Douglas fir trees are aided by Paper Birch trees. Sugars flow between the two trees roots, with a 	bigger gain for the Douglas fir trees. An underground fungi called ectomycorrhizae, transfers this nutrience. The fungi benefits from this transaction as well by keeping a small amount of carbohydrates and vitamins from the tree, which increases the roots ability to absorb water. This increases water flow and essential nutrients.<br>",
+                              "{Squirrels}, rabbits, and other small animals use seeds; deer, elk, and antelope eat twigs and foliage.<br>",
+                              "{Douglas Fir} trees are aided by Paper Birch trees. Sugars flow between the two trees roots, with a bigger gain for the {Douglas Fir} trees. An underground fungi called ectomycorrhizae, transfers this nutrience. The fungi benefits from this transaction as well by keeping a small amount of carbohydrates and vitamins from the tree, which increases the roots ability to absorb water. This increases water flow and essential nutrients.<br>",
                               "A home for northern spotted owl<br>"
                          ]
                     },
@@ -408,7 +437,7 @@ var linkCode = function(){
                     {
                          title: "Relationships",
                          info:[
-                              "Mycorrhizal fungi form a mutualistic relationship with the redwoods and other plants(Pacific Madrone) in the forest. The fungi will combine their mycelium with the tree's roots, this makes it easier for the trees to get nutrients and moisture, while the fungi gains sugars from the trees.<br>",
+                              "Mycorrhizal fungi form a mutualistic relationship with the {Redwood} and other plants(Pacific Madrone) in the forest. The fungi will combine their mycelium with the tree's roots, this makes it easier for the trees to get nutrients and moisture, while the fungi gains sugars from the trees.<br>",
                               "Has berries that birds, deer, raccoons, and bears like to eat."
                          ]
                     }
@@ -434,9 +463,9 @@ var linkCode = function(){
                    {
                         title: "Relationships",
                         info:[
-                             "The Coast Live Oak provides food and habitat for many species of mammals and birds, including but not limited to acorn woodpeckers, scrub jays, the oak titmouse, squirrels, woodrats, turkey vultures and many more.<br>",
-                             "Drops acorns at different times to avoid consumption by <a href='#EasternGraySquirrel' id='EasternGraySquirrelL'>squirrels</a><br>",
-                             "Leaf mulch helps repel slugs from soil<br>",
+                             "The Coast Live Oak provides food and habitat for many species of mammals and birds, including but not limited to acorn woodpeckers, scrub jays, the oak titmouse, {Squirrels}, woodrats, Turkey Vultures and many more.<br>",
+                             "Drops acorns at different times to avoid consumption by {Squirrels}<br>",
+                             "Leaf mulch helps repel {Slugs} from soil<br>",
                         ]
                    }
               ]
@@ -451,13 +480,13 @@ var linkCode = function(){
                              "<image style='width: 150px' src='img/bananaslug1.png'>",
                              "<image style='width: 150px' src='img/bananaslug2.png'>",
                              "description: Bright yellow, sometimes with black spots. Hoodlike flap on the head. Thin vertical stripes on bottom<br>",
-                             "facts: Licking them can numb your tongue, the second largest slug in the world. Can grow up to 10 inches long. Can move 6.5 inches per minute. <br>"
+                             "facts: Licking them can numb your tongue, the second largest Slug in the world. Can grow up to 10 inches long. Can move 6.5 inches per minute. <br>"
                         ]
                    },
                    {
                         title: "Relationships",
                         info:[
-                             "Banana slugs have a mutually symbiotic relationship with <a href='#CoastalRedwood' id='CoastalRedwoodL'>redwood trees</a>. This relationship is symbiotic because the banana slugs eat plant species that compete with redwoods for nutrients.<br>",
+                             "{Banana Slugs} have a mutually symbiotic relationship with <Redwood Trees>. This relationship is symbiotic because the {Banana Slugs} eat plant species that compete with {Redwood} for nutrients.<br>",
                         ]
                    }
               ]
@@ -478,7 +507,7 @@ var linkCode = function(){
                    {
                         title: "Relationships",
                         info:[
-                             "Eastern grey squirrels have a mutualistic relationship with <a href='#CoastalLiveOak' id='CoastalLiveOakL'>oak trees</a>. This is because squirrels leave acorns in hidden places to eat later, but sometimes they can't remember all of there hiding places. These acorns often end up growing and helping increase oak tree populations.<br>",
+                             "Eastern grey {Squirrels} have a mutualistic relationship with {Oak Trees}. This is because {Squirrels} leave acorns in hidden places to eat later, but sometimes they can't remember all of there hiding places. These acorns often end up growing and helping increase {Oak Tree} populations.<br>",
                         ]
                    }
               ]
@@ -493,13 +522,13 @@ var linkCode = function(){
                              "<image style='width: 150px' src='img/wildturkey1.png'>",
                              "<image style='width: 150px' src='img/wildturkey2.png'>",
                              "description: Rounded bodies, with plume of brown feathers as a tail, red flap of skin under beak<br>",
-                             "facts: Only the male turkeys gobble. These turkeys can fly, and they sleep in trees <br>",
+                             "facts: Only the male Turkeys gobble. These Turkeys can fly, and they sleep in trees <br>",
                         ]
                    },
                    {
                         title: "Relationships",
                         info:[
-                             "Each flock of turkeys are usually made up of siblings, and they band together by gender.Wild turkey eggs have many predators as well such as snakes, skunks, raccoons, coyote, and many more.<br>",
+                             "Each flock of <Turkeys> are usually made up of siblings, and they band together by gender.{Wild Turkey} eggs have many predators as well such as snakes, skunks, raccoons, coyote, and many more.<br>",
                         ]
                    }
               ]
@@ -696,7 +725,7 @@ var linkCode = function(){
                    {
                         title: "Relationships",
                         info:[
-                             "Slugs and snails are known eat english daisys. Earwigs like to eat just the pedals, while slugs and snails will eat the stem and the leaves as well. English daisies are also known to be a good deer resistant to keep them out of your backyard.<br>",
+                             "{Slugs} and snails are known eat english daisys. Earwigs like to eat just the pedals, while {Slugs} and snails will eat the stem and the leaves as well. English daisies are also known to be a good deer resistant to keep them out of your backyard.<br>",
                         ]
                    }
               ]
@@ -718,7 +747,7 @@ var linkCode = function(){
                    {
                         title: "Relationships",
                         info:[
-                             "Field marigolds are enjoyed by many insects such as grasshoppers. Slugs may also eat marigolds. Birds typically don't eat these flowers but often kill them while searching for foods. Rabbits may also be attracted to marigolds and eat them as well.<br>",
+                             "Field marigolds are enjoyed by many insects such as grasshoppers. {Slugs} may also eat marigolds. Birds typically don't eat these flowers but often kill them while searching for foods. Rabbits may also be attracted to marigolds and eat them as well.<br>",
                         ]
                    }
               ]
@@ -790,8 +819,8 @@ var linkCode = function(){
                     for(var i = 0; i < tabData.info.length;i++){
                          temptxt += tabData.info[i];
                     }
-                    //console.log(tabData.info);
-                    $(this).siblings(".linkp").html(temptxt);
+                    //console.log(linkData.id);
+                    $(this).siblings(".linkp").html(Replace(temptxt, linkData.id));
                     selectors();
                });
                // top: 105px;
