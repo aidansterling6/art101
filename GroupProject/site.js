@@ -52,6 +52,8 @@ var Replace = function(text, ntext){
 }
 //code for dropdown menus
 var dropDownCode = function(){
+     var maxwidth = 1438;
+     var minwidth = 1000;
      //ID's of all dropdown menus
      var dropIds = ["Authors", "Sources", "Plants", "Animals", "Arthropods", "Fungi", "Links"];
      //buttons in dropdown menus
@@ -96,14 +98,15 @@ var dropDownCode = function(){
 
           ],
           [
-               {text:"Natural History Center", func: function(){window.location.href = "https://norriscenter.ucsc.edu/index.html"}}//https://norriscenter.ucsc.edu/index.html
+               {text:"History Center", func: function(){window.location.href = "https://norriscenter.ucsc.edu/index.html"}}//https://norriscenter.ucsc.edu/index.html
           ]
      ];
      var buttonHeight = 30;
-     var Widths = [];
+     //var Widths = [];
+     var Width = Math.min(parseInt($(".topbox").css("width")), maxwidth)/dropIds.length - 10;;
      var Heights = [];
      var YOffsets = [];
-     var XShift = -4;
+     var XShift = 0;
      var YShift = 4;
      var WShift = 4;
      var tops = [];
@@ -111,13 +114,13 @@ var dropDownCode = function(){
      var isDowns = [];
      for(var i = 0; i < dropIds.length;i++){
           var temp = $("#" + dropIds[i]);
-          Widths.push(temp.width());
+          //Widths.push(Width);
           Heights.push(temp.height());
           YOffsets.push((-Buttons[i].length * buttonHeight) + buttonHeight);
           isDowns.push(false);
           bottoms.push($("<div class=dropdown></div>"));
           //bottoms[i].css("background-color", "#AAAAAA");
-          bottoms[i].css("width", (Widths[i]) + "px");
+          bottoms[i].css("width", (Width) + "px");
           temp.append(bottoms[i]);
           for(var o = 0; o < Buttons[i].length;o++){
                Buttons[i][o].button = $("<button class='dropdownButton'>" + Buttons[i][o].text + "</button>");
@@ -130,7 +133,7 @@ var dropDownCode = function(){
                Buttons[i][o].button.click(function(){
                     $(this).addClass("dropbuttonclick");
                });
-               Buttons[i][o].button.css("width", (Widths[i] + WShift) + "px");
+               Buttons[i][o].button.css("width", (Width + WShift) + "px");
                Buttons[i][o].button.css("height", buttonHeight + "px");
                Buttons[i][o].button.css("position", "absolute");
                Buttons[i][o].button.css("top", ((o * buttonHeight) + YOffsets[i]) + "px");
@@ -151,25 +154,30 @@ var dropDownCode = function(){
           // border: solid 0px black;
           tops[i].html(dropIds[i]);
           //tops[i].css("background-color", "#AAAAAA");
+          tops[i].css("left", "0px");
           tops[i].css("font-size", "20px");
           //tops[i].css("padding", "5px");
           tops[i].css("text-align", "center");
           tops[i].css("border", "solid 2px black");
-          tops[i].css("width", (Widths[i]) + "px");
+          tops[i].css("width", (Width) + "px");
           temp.append(tops[i]);
      }
      for(var i = 0; i < dropIds.length;i++){
           var dropdownEl = $("#" + dropIds[i]);
           dropdownEl.css("height", Heights[i] + "px");
-          dropdownEl.css("width", Widths[i] + "px");
+          dropdownEl.css("width", Width + "px");
      }
      var update = function(i){
           for(var o = 0; o < Buttons[i].length;o++){
-               Buttons[i][o].button.css("width", (Widths[i] + WShift) + "px");
+               Buttons[i][o].button.css("width", (Width + WShift) + "px");
                Buttons[i][o].button.css("height", buttonHeight + "px");
+               Buttons[i][o].button.css("font-size", "1vw");
+               if(parseInt(Buttons[i][o].button.css("font-size")) < 11){
+                    Buttons[i][o].button.css("font-size",  "11px");
+               }
                Buttons[i][o].button.css("top", ((o * buttonHeight) + YOffsets[i]) + "px");
-               Buttons[i][o].button.css("right", XShift + "px");
-               bottoms[i].css("width", (Widths[i] + WShift) + "px");
+               Buttons[i][o].button.css("left", 0 + "px");
+               bottoms[i].css("width", (Width + WShift) + "px");
                bottoms[i].css("height", ((o * buttonHeight) + YOffsets[i] + buttonHeight) + "px");
                Buttons[i][o].button.hide();
                if(((o * buttonHeight) + YOffsets[i]) >= 0){
@@ -177,6 +185,24 @@ var dropDownCode = function(){
                }
           }
      }
+     var updateall = function(){
+          Width = Math.min(parseInt($(".topbox").css("width")), maxwidth)/dropIds.length - 10;
+          for(var i = 0; i < dropIds.length;i++){
+               $("#" + dropIds[i]).css("left", ((i*Math.min(parseInt($(".topbox").css("width")), maxwidth)/dropIds.length) + 33) + "px");
+               $("#" + dropIds[i]).css("width", Width + "px");
+          }
+          for(var i = 0; i < Buttons.length;i++){
+               update(i);
+          }
+          for(var i = 0; i < tops.length;i++){
+               tops[i].css("width", (Width) + "px");
+               tops[i].css("font-size",  "1vw");
+               if(parseInt(tops[i].css("font-size")) < 11){
+                    tops[i].css("font-size",  "11px");
+               }
+          }
+     }
+     setInterval(updateall, 0.1);
      var Index = 0;
      var dropdown = function(){
           var index = Index;
