@@ -528,7 +528,7 @@ var linkCode = function(){
                    {
                         title: "Relationships",
                         info:[
-                             "Each flock of <Turkeys> are usually made up of siblings, and they band together by gender.{Wild Turkey} eggs have many predators as well such as snakes, skunks, raccoons, coyote, and many more.<br>",
+                             "Each flock of <Turkeys> are usually made up of siblings, and they band together by gender. {Wild Turkey} eggs have many predators as well such as snakes, skunks, raccoons, coyote, and many more.<br>",
                         ]
                    }
               ]
