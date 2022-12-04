@@ -138,7 +138,7 @@ body {
      padding: 20px;
      height: 15px;
      width: 305px;
-     font-size: 25px;
+     font-size: 20px;
      text-align: center;
      top: 5px;
      left: 5px;
@@ -192,4 +192,8 @@ body {
 .dropbuttonclick {
      font-family: "Monaco", monospace;
      background-color: #6a6b3b;
+}
+a {
+     color: blue;
+     text-decoration: underline;
 }
