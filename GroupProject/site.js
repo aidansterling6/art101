@@ -90,9 +90,10 @@ var dropDownCode = function(){
           [
                {text:"Aidan Sterling", func: function(){window.location.href = "https://aidansterling6.github.io/art101/"}},//https://aidansterling6.github.io/art101/
                {text:"Allison Dutton", func: function(){window.location.href = "https://alli5689.github.io/art101/"}},//https://alli5689.github.io/art101/
+               {text:"Jessica Zogaric", func: function(){window.location.href = "https://kickflipyeah.github.io/art101/"}},//https://kickflipyeah.github.io/art101/
                {text:"Mikayla Jordan", func: function(){window.location.href = "https://mikaylaj.github.io/art101/"}},//https://mikaylaj.github.io/art101/
-               {text:"Thomas Castillo", func: function(){window.location.href = ""}},//https://alli5689.github.io/art101/
-               {text:"Jessica Zogaric", func: function(){window.location.href = "https://kickflipyeah.github.io/art101/"}}//https://kickflipyeah.github.io/art101/
+               {text:"Thomas Castillo", func: function(){window.location.href = ""}}//https://alli5689.github.io/art101/
+
           ],
           [
                {text:"Source 1", func: function(){window.location.href = "https://www.savetheredwoods.org/redwoods/redwood-relatives/"}},
@@ -112,33 +113,33 @@ var dropDownCode = function(){
                {text:"Coastal Live Oak", func: function(){document.getElementById("CoastalLiveOak").scrollIntoView();select("CoastalLiveOak");}},
                {text:"Coastal Redwood", func: function(){document.getElementById("CoastalRedwood").scrollIntoView();select("CoastalRedwood");}},
                {text:"Douglas Fir", func: function(){document.getElementById("DouglasFir").scrollIntoView();select("DouglasFir");}},
-               {text:"Pacific Madrone", func: function(){document.getElementById("PacificMadrone").scrollIntoView();select("PacificMadrone");}},
-               {text:"Spotted Beebalm", func: function(){document.getElementById("SpottedBeebalm").scrollIntoView();select("SpottedBeebalm");}},
-               {text:"Woodland Madia", func: function(){document.getElementById("WoodlandMadia").scrollIntoView();select("WoodlandMadia");}},
                {text:"English Daisy", func: function(){document.getElementById("EnglishDaisy").scrollIntoView();select("EnglishDaisy");}},
                {text:"Field Marigold", func: function(){document.getElementById("FieldMarigold").scrollIntoView();select("FieldMarigold");}},
+               {text:"Pacific Madrone", func: function(){document.getElementById("PacificMadrone").scrollIntoView();select("PacificMadrone");}},
+               {text:"Spotted Beebalm", func: function(){document.getElementById("SpottedBeebalm").scrollIntoView();select("SpottedBeebalm");}},
+               {text:"Woodland Madia", func: function(){document.getElementById("WoodlandMadia").scrollIntoView();select("WoodlandMadia");}}
           ],
           [
                {text:"Banana Slug", func: function(){document.getElementById("BananaSlug").scrollIntoView();select("BananaSlug");}},
                {text:"Black-Tailed Deer", func: function(){document.getElementById("Black-TailedDeer").scrollIntoView();select("Black-TailedDeer");}},
                {text:"Eastern Gray Squirrel", func: function(){document.getElementById("EasternGraySquirrel").scrollIntoView();select("EasternGraySquirrel");}},
-               {text:"Wild Turkey", func: function(){document.getElementById("WildTurkey").scrollIntoView();select("WildTurkey");}},
+               {text:"Wild Turkey", func: function(){document.getElementById("WildTurkey").scrollIntoView();select("WildTurkey");}}
           ],
           [
-               {text:"Monarch Butterfly", func: function(){document.getElementById("MonarchButterfly").scrollIntoView();select("MonarchButterfly");}},
-               {text:"Ohlone Tiger Beetle", func: function(){document.getElementById("OhloneTigerBeetle").scrollIntoView();select("OhloneTigerBeetle");}},
                {text:"Digger Wasps", func: function(){document.getElementById("DiggerWasps").scrollIntoView();select("DiggerWasps");}},
-               {text:"Leaf Footed Bugs", func: function(){document.getElementById("LeafFootedBugs").scrollIntoView();select("LeafFootedBugs");}}
+               {text:"Leaf Footed Bugs", func: function(){document.getElementById("LeafFootedBugs").scrollIntoView();select("LeafFootedBugs");}},
+               {text:"Monarch Butterfly", func: function(){document.getElementById("MonarchButterfly").scrollIntoView();select("MonarchButterfly");}},
+               {text:"Ohlone Tiger Beetle", func: function(){document.getElementById("OhloneTigerBeetle").scrollIntoView();select("OhloneTigerBeetle");}}
           ],
           [
+               {text:"Amethyst Laccaria", func: function(){document.getElementById("WesternAmethystLaccaria").scrollIntoView();select("WesternAmethystLaccaria");}},
+               {text:"Bitter Brown Pax", func: function(){document.getElementById("BitterBrownPax").scrollIntoView();select("BitterBrownPax");}},
                {text:"Cone Mushroom", func: function(){document.getElementById("DouglasFirConeMushroom").scrollIntoView();select("DouglasFirConeMushroom");}},
                {text:"Cucumber Mushroom", func: function(){document.getElementById("CucumberMushroom").scrollIntoView();select("CucumberMushroom");}},
+               {text:"Ectomycorrhizal Fungi", func: function(){document.getElementById("EctomycorrhizalFungi").scrollIntoView();select("EctomycorrhizalFungi");}},
                {text:"Honey Mushroom", func: function(){document.getElementById("HoneyMushroom").scrollIntoView();select("HoneyMushroom");}},
                {text:"Mycorrhizal Fungi", func: function(){document.getElementById("MycorrhizalFungi").scrollIntoView();select("MycorrhizalFungi");}},
-               {text:"Ectomycorrhizal Fungi", func: function(){document.getElementById("EctomycorrhizalFungi").scrollIntoView();select("EctomycorrhizalFungi");}},
-               {text:"Western Witch Hat", func: function(){document.getElementById("WesternWitchHat").scrollIntoView();select("WesternWitchHat");}},
-               {text:"Amethyst Laccaria", func: function(){document.getElementById("WesternAmethystLaccaria").scrollIntoView();select("WesternAmethystLaccaria");}},
-               {text:"Bitter Brown Pax", func: function(){document.getElementById("BitterBrownPax").scrollIntoView();select("BitterBrownPax");}}
+               {text:"Western Witch Hat", func: function(){document.getElementById("WesternWitchHat").scrollIntoView();select("WesternWitchHat");}}
           ],
           [
                {text:"History Center", func: function(){window.location.href = "https://norriscenter.ucsc.edu/index.html"}}//https://norriscenter.ucsc.edu/index.html

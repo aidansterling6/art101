@@ -111,10 +111,10 @@ body {
 }
 .link {
      position: absolute;
-     user-select: none;
+     /* user-select: none;
      -moz-user-select: none;
      -webkit-user-select: none;
-     -ms-user-select: none;
+     -ms-user-select: none; */
      border: solid 2px #453422;
      border-radius: 5px;
      padding: 5px;
@@ -128,10 +128,10 @@ body {
 .linkhead {
      background-color: #D1C38F;
      position: absolute;
-     user-select: none;
+     /* user-select: none;
      -moz-user-select: none;
      -webkit-user-select: none;
-     -ms-user-select: none;
+     -ms-user-select: none; */
 
      border: solid 2px #453422;
      border-radius: 5px;
@@ -147,10 +147,10 @@ body {
 .linkp {
      background-color: #D1C38F;
      position: absolute;
-     user-select: none;
+     /* user-select: none;
      -moz-user-select: none;
      -webkit-user-select: none;
-     -ms-user-select: none;
+     -ms-user-select: none; */
      /* background-color: #AAAAAA; */
      border: solid 2px #453422;
      border-radius: 5px;
@@ -196,4 +196,5 @@ body {
 a {
      color: blue;
      text-decoration: underline;
+     cursor: pointer;
 }
