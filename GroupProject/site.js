@@ -1,9 +1,9 @@
-//select a specific link
+//select a specific link(the animals and plants)
 var select = function(id){
      $(".link").removeClass("picked");
      $("#" + id).addClass("picked");
 }
-//adds select functions to all links
+//adds select functions to all links and scrools the div into view
 var selectors = function(){
      $("a").unbind();
      $(".CapeWeedL").click(function(){select("CapeWeed");document.getElementById("CapeWeed").scrollIntoView();});
@@ -35,6 +35,7 @@ var selectors = function(){
      $(".WesternAmethystLaccariaL").click(function(){select("WesternAmethystLaccaria");document.getElementById("WesternAmethystLaccaria").scrollIntoView();});
      $(".BitterBrownPaxL").click(function(){select("BitterBrownPax");document.getElementById("BitterBrownPax").scrollIntoView();});
 }
+//information on what should be replaced by what
 var replaces = [
      {name:"EasternGraySquirrel",in:["{Squirrels}"], out:"<a class='EasternGraySquirrelL'>####</a>"},
      {name:"DouglasFir",in:["{Douglas Fir}", "{Douglas Firs}"], out:"<a class='DouglasFirL'>####</a>"},
@@ -59,6 +60,7 @@ var replaces = [
      {name:"OhloneTigerBeetle",in:["{Ohlone Tiger Beetle}"], out:"<a class='OhloneTigerBeetleL'>####</a>"},
      {name:"LeafFootedBugs",in:["{Leaf Footed Bugs}"], out:"<a class='LeafFootedBugsL'>####</a>"}
 ];
+//code to find and replace parts of text, uses replaces array to do this
 var Replace = function(text, ntext){
      var out = text;
      for(var i = 0; i < replaces.length; i++){
@@ -145,6 +147,7 @@ var dropDownCode = function(){
                {text:"History Center", func: function(){window.location.href = "https://norriscenter.ucsc.edu/index.html"}}//https://norriscenter.ucsc.edu/index.html
           ]
      ];
+     //set default settings of dropdown menus
      var buttonHeight = 30;
      //var Widths = [];
      var Width = Math.min(parseInt($(".topbox").css("width")), maxwidth)/dropIds.length - 10;
@@ -156,6 +159,7 @@ var dropDownCode = function(){
      var tops = [];
      var bottoms = [];
      var isDowns = [];
+     //set up dropdoen menus
      for(var i = 0; i < dropIds.length;i++){
           var temp = $("#" + dropIds[i]);
           //Widths.push(Width);
@@ -194,13 +198,9 @@ var dropDownCode = function(){
           tops[i].mouseleave(function(){
                $(this).removeClass("dropbuttonhover");
           });
-          // background-color: #AAAAAA;
-          // border: solid 0px black;
           tops[i].html(dropIds[i]);
-          //tops[i].css("background-color", "#AAAAAA");
           tops[i].css("left", "0px");
           tops[i].css("font-size", "20px");
-          //tops[i].css("padding", "5px");
           tops[i].css("text-align", "center");
           tops[i].css("border", "solid 2px black");
           tops[i].css("width", (Width) + "px");
@@ -211,6 +211,7 @@ var dropDownCode = function(){
           dropdownEl.css("height", Heights[i] + "px");
           dropdownEl.css("width", Width + "px");
      }
+     //updates positions of all buttons
      var update = function(i){
           for(var o = 0; o < Buttons[i].length;o++){
                Buttons[i][o].button.css("width", (Width + WShift) + "px");
@@ -232,6 +233,7 @@ var dropDownCode = function(){
                }
           }
      }
+     //updates every part of dropdown nenus
      var updateall = function(){
           Width = Math.min(parseInt($(".topbox").css("width")), maxwidth)/dropIds.length - 10;
           for(var i = 0; i < dropIds.length;i++){
@@ -254,6 +256,8 @@ var dropDownCode = function(){
      }
      setInterval(updateall, 0.1);
      var Index = 0;
+
+     //code for dropdown menus
      var dropdown = function(){
           var index = Index;
           var sy = 0;
@@ -299,7 +303,7 @@ var dropDownCode = function(){
           Index++;
      }
 }
-
+//welcome message
 var startmaptext = "Hello and welcome to our website! This website was made as a class project " +
 "in order to show people some of the wildlife on campus at UCSC. The buttons to the left tell you about different"+
 " Vegetation Communities on the campus. The dropdown menus above have links to our sources and to some of our "+
@@ -392,6 +396,7 @@ var mapCode = function(){
      for(var i = 1; i <= 13;i++){
           $("#ib" + i).css("width", mapWidths[i - 1] + "px");
      }
+     //setup all the map buttons
      for(var i = 1; i <= 13;i++){
 
           tempButton = $("#ib" + i);
@@ -995,11 +1000,12 @@ var linkCode = function(){
 
 
 
-
+     //add body to all links(animal information divs)
      var links = [];
      $(".link").each(function(i){
           links.push({body: $(this)});
      });
+     //setup all links
      for(var i = 0; i < links.length;i++){
           links[i].id = links[i].body.attr('id');
           links[i].body.css("left", (parseInt(links[i].body.css("left")) * 400 + 50) + "px");
@@ -1090,4 +1096,3 @@ var linkCode = function(){
 dropDownCode();
 mapCode();
 linkCode();
-//setInterval(selectors, 0.1)
