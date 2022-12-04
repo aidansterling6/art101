@@ -144,7 +144,8 @@ var dropDownCode = function(){
                {text:"Western Witch Hat", func: function(){document.getElementById("WesternWitchHat").scrollIntoView();select("WesternWitchHat");}}
           ],
           [
-               {text:"History Center", func: function(){window.location.href = "https://norriscenter.ucsc.edu/index.html"}}//https://norriscenter.ucsc.edu/index.html
+               {text:"History Center", func: function(){window.location.href = "https://norriscenter.ucsc.edu/index.html"}},//https://norriscenter.ucsc.edu/index.html
+               {text:"Java Script", func: function(){window.location.href = "site.js"}}//https://norriscenter.ucsc.edu/index.html
           ]
      ];
      //set default settings of dropdown menus
