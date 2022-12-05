@@ -7,23 +7,24 @@ body {
   font-family: "Monaco", monospace;
 }
 .title {
-  background-color: #8E7951;
+  background-color: #415914;
   border: solid 2px #453422;
   border-radius: 5px;
   padding: 20px;
   font-family: "Monaco", monospace;
 }
 .topbox {
-  background-color: #8E7951;
+  background-color: #415914;
   border: solid 2px #453422;
   border-radius: 5px;
   padding: 20px;
   height: 100px;
   font-family: "Monaco", monospace;
+  color: #D1C38F;
 }
 .map {
   display: flex;
-  background-color: #8E7951;
+  background-color: #415914;
   border: solid 2px #453422;
   border-radius: 5px;
   padding: 20px;
@@ -32,6 +33,7 @@ body {
 #ucscmap {
      display: inline-block;
      float: left;
+     border-radius: 5px;
 }
 #ucscmapinfo {
      background-color: #D1C38F;
@@ -69,7 +71,6 @@ body {
 #Authors {
   left: 30px;
   font-family: "Monaco", monospace;
-
 }
 #Sources {
   left: 270px;
@@ -103,13 +104,15 @@ body {
   -ms-user-select: none;
   /* width: 200px; */
   height: 30px;
+  color: #000000;
   background-color: #A4A55B;
   font-family: "Monaco", monospace;
 }
 .back {
-   background-color: #8E7951;
+   background-color: #415914;
 }
 .link {
+     background-color: #415914;
      position: absolute;
      /* user-select: none;
      -moz-user-select: none;
@@ -123,7 +126,8 @@ body {
      font-family: "Monaco", monospace;
 }
 .picked {
-     background-color: rgba(0, 0, 0, .5);
+     /* background-color: rgba(0, 0, 0, .5); */
+     background-color: #75D722;
 }
 .linkhead {
      background-color: #D1C38F;
@@ -177,21 +181,24 @@ body {
 }
 .selected {
      background-color: #A4A55B;
-     border: solid 2px #453422;
+     border: solid 2px #403615;
      border-radius: 5px;
      z-index: 1;
 }
 .dropdownButton:not(.dropbuttonhover) {
     font-family: "Monaco", monospace;
     background-color: #A4A55B;
+    border: solid 1px #403615;
 }
 .dropbuttonhover {
      font-family: "Monaco", monospace;
      background-color: #898a4c;
+     border: solid 2px #403615;
 }
 .dropbuttonclick {
      font-family: "Monaco", monospace;
      background-color: #6a6b3b;
+     border: solid 2px #403615;
 }
 a {
      color: blue;

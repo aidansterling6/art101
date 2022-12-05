@@ -205,7 +205,7 @@ var dropDownCode = function(){
           tops[i].css("left", "0px");
           tops[i].css("font-size", "20px");
           tops[i].css("text-align", "center");
-          tops[i].css("border", "solid 2px black");
+          tops[i].css("border", "solid 2px #403615");
           tops[i].css("width", (Width) + "px");
           temp.append(tops[i]);
      }
@@ -308,9 +308,8 @@ var dropDownCode = function(){
 }
 //welcome message
 var startmaptext = "Hello and welcome to our website! This website was made as a class project " +
-"in order to show people some of the wildlife on campus at UCSC. The buttons to the left tell you about different"+
-" Vegetation Communities on the campus. The dropdown menus above have links to our sources and to some of our "+
-"personal websites, as well as lists of all of the animals, plants, insects, and fungi that we have included. ";
+"to show people some of the wildlife on campus at UC Santa Cruz. The buttons to the left tell you about different"+
+" Vegetation Communities on the campus. The dropdown menus above have links to our sources and display our authors' names, as well as lists of all of the animals, plants, insects, and fungi that we have included. ";
 
 //function for the ucsc map and buttons
 var mapCode = function(){
@@ -948,7 +947,7 @@ var linkCode = function(){
                         info:[
                              "<image style='width: 150px' src='img/westernwitchhat1.png'>",
                              "<image style='width: 150px' src='img/westernwitchhat2.png'>",
-                             "This fungi has a cap that is orange to red or yellowish, conical, and peaked. Gills whitish to pale yellow, soon becoming gray. Stipe yellowish, tall, and fibrous. Soon developing grayish to black blotches and in age entirely jet black."
+                             "Description: This fungi has a cap that is orange to red or yellowish, conical, and peaked. Gills whitish to pale yellow, soon becoming gray. Stipe yellowish, tall, and fibrous. Soon developing grayish to black blotches and in age entirely jet black."
                         ]
                    },
                    {
