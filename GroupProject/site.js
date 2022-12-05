@@ -846,7 +846,7 @@ var linkCode = function(){
                         info:[
                              "<image style='width: 150px' src='img/cucumbermushroom1.png'>",
                              "<image style='width: 150px' src='img/cucumbermushroom2.png'>",
-                             "Fruit Body small, relatively fragile. Warm orange overall, cap margin somewhat striate. They usually smell strongly of cucumbers. Spores pinkish.",
+                             "Description: Fruit Body small, relatively fragile. Warm orange overall, cap margin somewhat striate. They usually smell strongly of cucumbers. Spores pinkish.",
 
                         ]
                    },
@@ -867,7 +867,7 @@ var linkCode = function(){
                         info:[
                              "<image style='width: 150px' src='img/douglasfirconemushroom1.png'>",
                              "<image style='width: 150px' src='img/douglasfirconemushroom2.png'>",
-                               "Cap white to grayish-white, often with yellowish centers. The gills are fairly close but not crowded. Whitish yellow stripe towards the base. Growing in groups out of {Douglas Fir} cones."
+                             "Description: Cap white to grayish-white, often with yellowish centers. The gills are fairly close but not crowded. Whitish yellow stripe towards the base. Growing in groups out of {Douglas Fir} cones."
                         ]
                    },
                    {
@@ -887,7 +887,7 @@ var linkCode = function(){
                         info:[
                              "<image style='width: 130px' src='img/armillariaspp1.png'>",
                              "<image style='width: 150px' src='img/armillariaspp2.jfif'>",
-                             "Also called the honey mushroom, this mushroom has a Cap with small, dark hairs. Gills broadly attached or slightly decurrent, beige to tan or pinkish-brown in age, producing heavy white spore ",
+                             "Description: Also called the honey mushroom, this mushroom has a Cap with small, dark hairs. Gills broadly attached or slightly decurrent, beige to tan or pinkish-brown in age, producing heavy white spore ",
                              "print. Stipe bases are swollen, bulbous, and often yellowish. Partial veil present, sometimes ragged, cottony, or disappearing in age. Often near rotting wood."
                         ]
                    },
@@ -908,7 +908,7 @@ var linkCode = function(){
                         info:[
                              "<image style='width: 150px' src='img/mycorrhizalfungi1.png'>",
                              "<image style='width: 150px' src='img/mycorrhizalfungi2.png'>",
-                             "This fungus forms a partnership with 90% of terrestrial plants, including {Redwoods}. Essentially, the Mycorrhizal Fungi connects to the roots of plant's cells."
+                             "Facts: This fungus forms a partnership with 90% of terrestrial plants, including {Redwoods}. Essentially, the Mycorrhizal Fungi connects to the roots of plant's cells."
                         ]
                    },
                    {
@@ -928,7 +928,7 @@ var linkCode = function(){
                         info:[
                              "<image style='width: 150px' src='img/ectomycorrhizalfungi1.png'>",
                              "<image style='width: 150px' src='img/ectomycorrhizalfungi2.png'>",
-                             "A symbiont with temperate and boreal forest trees (i.e. {Redwoods}), providing their hosts with soil nutrients and water in exchange for plant carbon."
+                             "Facts: A symbiont with temperate and boreal forest trees (i.e. {Redwoods}), providing their hosts with soil nutrients and water in exchange for plant carbon."
                         ]
                    },
                    {
@@ -968,13 +968,13 @@ var linkCode = function(){
                         info:[
                              "<image style='width: 150px' src='img/westernamethystlaccaria1.png'>",
                              "<image style='width: 150px' src='img/westernamethystlaccaria2.png'>",
-                             "This fungi has a cap scruffy, deep amethyst at first but fading to nearly whitish-beige. Gills widely spaced, thick, deep amethyst-colored. Striped shaggy-ragged, and quite tough to touch."
+                             "Description: This fungi has a cap scruffy, deep amethyst at first but fading to nearly whitish-beige. Gills widely spaced, thick, deep amethyst-colored. Striped shaggy-ragged, and quite tough to touch."
                         ]
                    },
                    {
                         title: "Relationships",
                         info:[
-                             "The Western Amethyst Laccaria actually lives on the {Douglas Fir} trees and can be found throughout the upper campus. "
+                             "The Western Amethyst Laccaria lives on the {Douglas Fir} trees and can be found throughout the upper campus. "
                         ]
                    }
               ]
@@ -988,13 +988,13 @@ var linkCode = function(){
                         info:[
                              "<image style='width: 150px' src='img/bitterbrownpax1.png'>",
                              "<image style='width: 150px' src='img/bitterbrownpax2.png'>",
-                             "The Bitter Brown Pax has a dull brownish cap, dry, texture like suede, margin obscurely ribbed. Stripe white to off-white, often with a chunk of mycelium at the base. It is edible, though not recommended as it is very bitter."
+                             "Description: The Bitter Brown Pax has a dull brownish cap, dry, texture like suede, margin obscurely ribbed. Stripe white to off-white, often with a chunk of mycelium at the base. It is edible, though not recommended as it is very bitter."
                         ]
                    },
                    {
                         title: "Relationships",
                         info:[
-                             "It is commonly found throughout the {Redwood} forest as well as the upper campus."
+                             "Bitter Brown Pax is commonly found throughout the {Redwood} forest as well as the upper campus."
                         ]
                    }
               ]
