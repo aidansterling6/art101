@@ -1,5 +1,5 @@
 html#this {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
    min-width:1000px;
 }
 body {
